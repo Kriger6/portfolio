@@ -1,5 +1,9 @@
 .navbar {
     display: flex;
     flex-direction: row;
+    position: sticky;
+    justify-content: space-between;
 }
+
+
 
