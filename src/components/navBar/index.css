@@ -1,9 +1,12 @@
 .navbar {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     position: sticky;
     justify-content: space-between;
+    align-items: center;
     height: 120px;
+    background-color: transparent;
 }
 
 .menu-links {
@@ -14,8 +17,5 @@
 }
 
 .menu-links a {
-    font-size: x-large;
+    font-size: 1.2rem
 }
-
-
-

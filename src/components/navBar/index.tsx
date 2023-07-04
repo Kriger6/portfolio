@@ -1,6 +1,6 @@
 import Logo from "../logoContainer"
-import sun from "../../assets/sun.svg"
 import './index.css'
+import DisplayMode from "../displayMode"
 
 const NavBar = () => {
   return (
@@ -12,7 +12,7 @@ const NavBar = () => {
         <a href="/#about">About</a>
         <a href="/#contact">Contact</a>
         <div className="display-mode">
-          <img src="../../assets/sun.svg" alt="dark mode/light mode" />
+          <DisplayMode />
         </div>
       </div>
     </header>

@@ -1,7 +1,7 @@
 import logo from '../../assets/logo.jpg'
 const Logo = () => {
   return (
-        <svg>
+        <svg width={'100px'} height={'50px'}>
             <image href={logo} height={'50px'} width={'100px'}></image>
         </svg>
         
