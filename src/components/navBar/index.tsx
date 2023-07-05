@@ -4,7 +4,7 @@ import DisplayMode from "../displayMode"
 
 const NavBar = () => {
   return (
-    <header className="navbar" style={{ background: '#171717' }}  >
+    <header className="navbar"  >
       <Logo />
       <div className="menu-links">
         <a href="/#introduction">Introduction</a>

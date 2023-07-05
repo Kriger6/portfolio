@@ -2,10 +2,10 @@ import './index.css'
 
 const Introduction = () => {
   return (
-    <section>
+    <section className='introduction-section'>
       <div>
         <h1>I design and develop applications.</h1>
-        <p>I am self-taught frontend developer with passion for building responsive websites</p>
+        <p>I'm a self-taught frontend developer with passion for building responsive websites</p>
         <h2>Explore my projects</h2>
       </div>
       <div>

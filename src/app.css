@@ -25,6 +25,10 @@ a {
     color: #5c5c5c;
 }
 
+p {
+    font-size: larger;
+}
+
 header {
     position: sticky
 }

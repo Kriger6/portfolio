@@ -1,12 +1,12 @@
 .navbar {
-    margin-top: 20px;
     display: flex;
     flex-direction: row;
     position: sticky;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
-    background-color: transparent;
+    height: 130px;
+    width: 100%;
+    top: 0;
 }
 
 .menu-links {

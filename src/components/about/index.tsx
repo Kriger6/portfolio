@@ -12,7 +12,7 @@ const About = () => {
             <p>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
         </div>
         <div>
-            <p>WHO I AM</p>
+            <p>WHO AM I</p>
             <p>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer</p>
             <p>Front-end has been my main focus ever since i started learning programming.</p>
             <p>I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies</p>
