@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.jpg'
+import logo from '../../assets/logo.png'
 const Logo = () => {
   return (
         <svg width={'100px'} height={'50px'}>
