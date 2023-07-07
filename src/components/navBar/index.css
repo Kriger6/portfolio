@@ -14,8 +14,13 @@
     align-items: center;
     justify-content: space-evenly;
     width: 500px;
+    height: 28px;
 }
 
 .menu-links a {
     font-size: 1.2rem
+}
+
+.display-mode {
+    height: inherit;
 }
