@@ -9,8 +9,8 @@ const Contact = () => {
                 <div className="section-border"></div>
             </div>
             <div>
-                <p>Do not hesitate to contact me through the form here or by direct email on
-                    <span style={{ textDecoration: 'underline' }} >sasa.palinkas6@gmail.com</span>regardless of the subject.
+                <p>Do not hesitate to contact me through the form here or by direct email on {" "}  
+                    <span style={{ textDecoration: 'underline' }} >sasa.palinkas6@gmail.com</span> regardless of the subject.
                 </p>
                 <form>
                     <div>

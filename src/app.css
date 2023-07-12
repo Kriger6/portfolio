@@ -22,11 +22,13 @@ body {
 
 a {
     text-decoration: none;
-    color: #5c5c5c;
+    color: #b5b5b5;
+    font-size: 2rem;
 }
 
 p {
     font-size: larger;
+    color: #B5B5B5;
 }
 
 header {
@@ -39,6 +41,6 @@ header {
     flex-direction: column;
 }
 
-p {
+h2 {
     color: #B5B5B5;
 }

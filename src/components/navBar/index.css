@@ -18,7 +18,8 @@
 }
 
 .menu-links a {
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    color: #8f8f8f
 }
 
 .display-mode {

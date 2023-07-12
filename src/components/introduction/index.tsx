@@ -6,7 +6,9 @@ const Introduction = () => {
       <div>
         <h1>I design and develop applications.</h1>
         <p>I'm a self-taught frontend developer with passion for building responsive websites</p>
-        <h2>Explore my projects</h2>
+        <div style={{marginTop: '60px'}}>
+          <a>Explore my projects</a>
+        </div>
       </div>
       <div>
 
