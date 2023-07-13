@@ -44,3 +44,33 @@ header {
 h2 {
     color: #B5B5B5;
 }
+
+h3 {
+    color: #6A6A6A;
+    font-size: initial;
+}
+
+.section-border {
+    height: 1px;
+    background-color: #6A6A6A;
+    width: 90%;
+}
+
+.section-border-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.section-border-heading {
+    line-height: 5px;
+}
+
+.section-content {
+    width: 90%;
+}
+
+.section-content-container {
+    display: flex;
+    justify-content: end;
+}

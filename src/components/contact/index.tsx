@@ -2,10 +2,10 @@
 const Contact = () => {
     return (
         <section>
-            <div>
-                <div>
+            <div className="section-border-container">
+                <h3 className="section-border-heading">
                     CONTACT
-                </div>
+                </h3>
                 <div className="section-border"></div>
             </div>
             <div>
