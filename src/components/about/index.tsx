@@ -1,18 +1,18 @@
 
 const About = () => {
     return (
-        <section>
+        <section className="main-section">
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     ABOUT
                 </h3>
                 <div className="section-border"></div>
             </div>
-            <section>
-                <div>
+            <section className="section-content-container">
+                <div className="section-content">
                     <p>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
                 </div>
-                <div>
+                <div className="section-content">
                     <h3>WHO AM I</h3>
                     <p>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer</p>
                     <p>Front-end has been my main focus ever since i started learning programming.</p>
@@ -21,7 +21,7 @@ const About = () => {
                         It allows me to have it exactly as i desire. For intstance, I use Visual studio code as my editor of choice.
                     </p>
                 </div>
-                <div>
+                <div className="section-content">
                     <p>TECH I ENJOY</p>
                     <div>
 

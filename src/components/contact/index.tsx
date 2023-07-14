@@ -1,14 +1,15 @@
 
 const Contact = () => {
     return (
-        <section>
+        <section className="main-section">
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     CONTACT
                 </h3>
                 <div className="section-border"></div>
             </div>
-            <div>
+            <section className="section-content-container">
+            <div className="section-content">
                 <p>Do not hesitate to contact me through the form here or by direct email on {" "}  
                     <span style={{ textDecoration: 'underline' }} >sasa.palinkas6@gmail.com</span> regardless of the subject.
                 </p>
@@ -30,6 +31,7 @@ const Contact = () => {
                     </div>
                 </form>
             </div>
+            </section>
         </section>
     )
 }

@@ -21,9 +21,13 @@ body {
 }
 
 a {
-    text-decoration: none;
+    text-underline-offset: 10px;
     color: #b5b5b5;
     font-size: 2rem;
+}
+
+.menu-links a:hover, a:hover {
+    color: #cecece;
 }
 
 p {
@@ -33,6 +37,16 @@ p {
 
 header {
     position: sticky
+}
+
+footer {
+    padding: 64px 0 64px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer a {
+    color: #8f8f8f;
 }
 
 .app-container {
@@ -50,10 +64,14 @@ h3 {
     font-size: initial;
 }
 
+.main-section {
+    padding-bottom: 250px;
+}
+
 .section-border {
     height: 1px;
-    background-color: #6A6A6A;
-    width: 90%;
+    background-color: #292929;
+    width: 92%;
 }
 
 .section-border-container {
@@ -67,10 +85,12 @@ h3 {
 }
 
 .section-content {
-    width: 90%;
+    width: 92%;
 }
 
 .section-content-container {
     display: flex;
     justify-content: end;
+    flex-wrap: wrap;
+    margin-top: 60px;
 }

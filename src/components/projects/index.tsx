@@ -1,7 +1,8 @@
+import ProjectExample from "./projectExamples"
 
 const Projects = () => {
     return (
-        <section>
+        <section className="main-section">
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     PROJECTS
@@ -10,12 +11,24 @@ const Projects = () => {
             </div>
             <section className="section-content-container">
                 <div className="section-content">
-                    <p>Check out some of my main projects</p>
+                    <p>Check out some of my main projects i have worked on.</p>
                 </div>
-                <div>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                <div className="section-content example-container">
+                    <figure>
+                        <div style={{height: "330px", width: "400px"}}>
+                            <ProjectExample />
+                        </div>
+                    </figure>
+                    <figure>
+                        <div style={{ height: "330px", width: "400px" }}>
+                            <ProjectExample />
+                        </div>
+                    </figure>
+                    <figure>
+                        <div style={{ height: "330px", width: "400px" }}>
+                            <ProjectExample />
+                        </div>
+                    </figure>
                 </div>
             </section>
 
