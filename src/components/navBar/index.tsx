@@ -7,10 +7,10 @@ const NavBar = () => {
     <header className="navbar"  >
       <Logo />
       <div className="menu-links">
-        <a href="/#introduction">Introduction</a>
-        <a href="/#projects">Projects</a>
-        <a href="/#about">About</a>
-        <a href="/#contact">Contact</a>
+        <a className="link-animation" href="/#introduction">Introduction</a>
+        <a className="link-animation" href="/#projects">Projects</a>
+        <a className="link-animation" href="/#about">About</a>
+        <a className="link-animation" href="/#contact">Contact</a>
         <div className="display-mode">
           <DisplayMode />
         </div>

@@ -17,9 +17,30 @@
     height: 28px;
 }
 
-.menu-links a {
+.link-animation {
     font-size: 1.2rem;
-    color: #8f8f8f
+    color: #8f8f8f;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.link-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -8px;
+    left: 0;
+    background-color: #8f8f8f;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out
+}
+
+.link-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .display-mode {

@@ -1,3 +1,4 @@
+import DarkWidgets from '../darkWidgets'
 import './index.css'
 
 const Introduction = () => {
@@ -10,8 +11,8 @@ const Introduction = () => {
           <a>Explore my projects</a>
         </div>
       </div>
-      <div>
-
+      <div className='widgets-container'>
+      <DarkWidgets />
       </div>
     </section>
   )

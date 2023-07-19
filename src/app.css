@@ -94,3 +94,13 @@ h3 {
     flex-wrap: wrap;
     margin-top: 60px;
 }
+
+.social-networks-container {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.trademark {
+    font-size: small;
+}

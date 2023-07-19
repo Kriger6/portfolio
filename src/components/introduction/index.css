@@ -1,11 +1,13 @@
 h1 {
     color: white;
-    font-size: 5.1rem;
-    max-width: 60%;
+    font-size: 4.7rem;
     margin-top: 150px;
     font-weight: normal;
 }
 
+.introduction-section {
+    display: flex;
+}
 
 .introduction-section p {
     margin-top: 50px;
