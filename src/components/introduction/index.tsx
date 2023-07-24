@@ -1,4 +1,5 @@
-import DarkWidgets from '../darkWidgets'
+import DummyWidgets from '../dummyWidgets'
+import DarkWidgets from '../dummyWidgets'
 import './index.css'
 
 const Introduction = () => {
@@ -12,7 +13,7 @@ const Introduction = () => {
         </div>
       </div>
       <div className='widgets-container'>
-      <DarkWidgets />
+      <DummyWidgets />
       </div>
     </section>
   )

@@ -1,17 +1,20 @@
 import {v4 as uuidv4} from 'uuid'
 import './index.css'
-const DarkWidgets = () => {
+import DummySearchBar from './dummySearchBar'
+const DummyWidgets = () => {
 
     let grid = Array(100).fill(undefined).map(() => <div key={uuidv4()} style={{ width: "50px", height: "50px", border: "1px solid #292929", backgroundColor: "#171717" }}></div>)
 
     return (
         <div className='widget-container' style={{ display: "flex", width: "500px", height: "500px", flexWrap: "wrap" }}>
             {grid}
-            {/* <div>
-
-            </div>             */}
+            <div className='animation-dummy-base'>
+                <div className="base-dummy-content">
+                    <DummySearchBar />
+                </div>
+            </div>            
         </div>
     )
 }
 
-export default DarkWidgets
+export default DummyWidgets

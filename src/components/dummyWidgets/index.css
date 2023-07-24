@@ -1,0 +1,23 @@
+.widget-container {
+    mask: radial-gradient(circle, black, transparent);;
+    -webkit-mask: radial-gradient(circle, black, transparent);
+    position: relative;
+}
+
+.animation-dummy-base {
+    width: 200px;
+    height: 400px;
+    background-color: #2b2b2b;
+    position: absolute;
+    left: calc(50% - 100px);
+    border-radius: 5px;
+}
+
+.base-dummy-content {
+    /* background-color: red; */
+    height: 360px;
+    width: 190px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
