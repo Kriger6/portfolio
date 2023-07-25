@@ -1,3 +1,4 @@
+import DummyText from "./dummyText"
 
 const DummySearchBar = () => {
     return (
@@ -12,12 +13,8 @@ const DummySearchBar = () => {
                     right: '5px', borderRadius: '50%', top: 'calc(50% - 11px'}}></div>
             </div>
             <div style={{position: 'inherit', top: '36px', height: '70px', width: '100%'}}>
-                <div style={{position: 'inherit', background: '#5c5c5c', width: '50px', height: '9px',
-                    left: '10px', top: '15px', borderRadius: '10px' }}></div>
-                <div style={{
-                    position: 'inherit', background: '#5c5c5c', width: '130px', height: '6px    ',
-                    left: '10px', top: '32px', borderRadius: '10px'
-                }}></div>
+                <DummyText w={50} h={9} left={10} top={10} />
+                <DummyText w={130} h={6} left={10} top={5} />
             </div>
         </div>
     )
