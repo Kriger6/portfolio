@@ -1,5 +1,6 @@
 .widget-container {
-    mask: radial-gradient(circle, black, transparent);;
+    mask: radial-gradient(circle, black, transparent);
+    ;
     -webkit-mask: radial-gradient(circle, black, transparent);
     position: relative;
 }
@@ -11,6 +12,51 @@
     position: absolute;
     left: calc(50% - 100px);
     border-radius: 5px;
+}
+
+.animation-dummy-item {
+    background-color: grey;
+    width: 160px;
+    height: 60px;
+    position: absolute;
+    top: 35px;
+    opacity: 0%;
+    left: -65px;
+    animation-delay: 2s;
+    animation-duration: 1.2s;
+}
+
+.animation-dummy-item-in {
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+}
+
+.animation-dummy-item-out {
+    animation-name: fadeOut;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translate(-50px);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 100%;
+        left: -115px;
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translate(20px);
+    }
 }
 
 .base-dummy-content {
