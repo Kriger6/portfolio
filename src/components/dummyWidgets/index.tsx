@@ -11,8 +11,9 @@ const DummyWidgets = () => {
     }}></div>)
 
     const [timer, setTimer] = useState<boolean | undefined>(false)
-    // const [defaultTime, setDefaultTime] = useState<number | undefined>(2000)
+    const [defaultTime, setDefaultTime] = useState<number | undefined>(1200)
     const [classState, setClassState] = useState<string | undefined>(undefined)
+    const [movingDistance, setMovingDistance] = useState<number | undefined>(0)
 
     const animations = [
         'animation-dummy-item-in',
@@ -21,10 +22,12 @@ const DummyWidgets = () => {
 
     const interval = setInterval(() => {
         setTimer(!timer)
-        console.log("hi");
         setClassState(animations[timer === false ? 0 : 1])
-
-    }, 6000)
+        setMovingDistance(timer === true ? 0 : -50)
+        if (defaultTime === 1200) {
+            setDefaultTime(8000)
+        }
+    }, defaultTime)
 
 
     useEffect(() => {
@@ -58,9 +61,29 @@ const DummyWidgets = () => {
                         <DummyCircle w={28} h={28} />
                         <DummyCircle w={28} h={28} />
                     </div>
-                    <div className={`animation-dummy-item ${classState} `}>
+                    <div className={`animation-dummy-rectangle ${classState} `} style={{ 
+                        transform: `translate(${movingDistance}px)`, top: '35px',
+                        left: '-65px' }}>
 
                     </div>
+                    <div className={`animation-dummy-square ${classState} `} style={{ 
+                        transform: `translateY(${movingDistance}px)`, top: '100px',
+                        left: '110px' }}>
+
+                    </div>
+                    <div className={`animation-dummy-square ${classState} `} style={{
+                        transform: `translateY(${movingDistance}px)`, top: '250px',
+                        left: '-120px'
+                    }}>
+
+                    </div>
+                    <div className={`animation-dummy-rectangle ${classState} `} style={{
+                        transform: `translate(${movingDistance}px)`, top: '300px',
+                        left: '170px'
+                    }}>
+
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -14,16 +14,25 @@
     border-radius: 5px;
 }
 
-.animation-dummy-item {
-    background-color: grey;
+.animation-dummy-rectangle {
+    background-color: #353535;
+    border-radius: 5px;
     width: 160px;
     height: 60px;
     position: absolute;
-    top: 35px;
     opacity: 0%;
-    left: -65px;
-    animation-delay: 2s;
     animation-duration: 1.2s;
+    transition-duration: 1.2s;
+}
+
+.animation-dummy-square {
+    background-color: #353535;
+    border-radius: 5px;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    animation-duration: 1.2s;
+    transition-duration: 1.2s;
 }
 
 .animation-dummy-item-in {
@@ -43,19 +52,16 @@
 
     100% {
         opacity: 100%;
-        transform: translate(-50px);
     }
 }
 
 @keyframes fadeOut {
     0% {
         opacity: 100%;
-        left: -115px;
     }
 
     100% {
         opacity: 0%;
-        transform: translate(20px);
     }
 }
 
