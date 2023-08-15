@@ -31,6 +31,7 @@
     width: 140px;
     height: 140px;
     position: absolute;
+    opacity: 0%;
     animation-duration: 1.2s;
     transition-duration: 1.2s;
 }

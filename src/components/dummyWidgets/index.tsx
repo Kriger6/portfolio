@@ -10,29 +10,55 @@ const DummyWidgets = () => {
         width: "50px", height: "50px", border: "1px solid #292929", backgroundColor: "#171717"
     }}></div>)
 
-    const [timer, setTimer] = useState<boolean | undefined>(false)
-    const [defaultTime, setDefaultTime] = useState<number | undefined>(1200)
-    const [classState, setClassState] = useState<string | undefined>(undefined)
-    const [movingDistance, setMovingDistance] = useState<number | undefined>(0)
+    const [timer, setTimer] = useState<boolean[] | undefined>([false, false, false, false])
+    const [defaultTime, setDefaultTime] = useState<number[] | undefined>([1200, 4000, 8000, 12000])
+    const [classState, setClassState] = useState<string[] | undefined>([undefined, undefined, undefined, undefined])
+    const [movingDistance, setMovingDistance] = useState<number[] | undefined>([0, 0, 0, 0])
 
     const animations = [
         'animation-dummy-item-in',
         'animation-dummy-item-out'
     ]
 
-    const interval = setInterval(() => {
-        setTimer(!timer)
-        setClassState(animations[timer === false ? 0 : 1])
-        setMovingDistance(timer === true ? 0 : -50)
-        if (defaultTime === 1200) {
-            setDefaultTime(8000)
+    setTimeout(() => {
+        const newTimer = timer.map((time: boolean, index: number) => {
+            if (index === 0 && time === false) {
+                return time = true
+            } else {
+                return time = false
+            }
+        })        
+        setTimer(newTimer)
+        const newClassState = classState.map((x: string, index: number) => {
+            if(index === 0 && timer[0] === false) {
+                return x = animations[0]
+            } else if (index === 0 && timer[0] === true) {
+                return x = animations[1]
+            } else {
+                return x
+            }
+        })
+        setClassState(newClassState)
+        const newDistance = movingDistance.map((x: number, index: number) => {
+            if (index === 0 && timer[0] === true) {
+                return x = 0
+            } else if (index === 0 && timer[0] === false) {
+                return x = -50
+            } else return x
+        })
+        setMovingDistance(newDistance)
+        if (defaultTime[0] === 1200) {
+            const newDefaultTime = defaultTime.map((x: number) => {
+                return x = 8000
+            })
+            setDefaultTime(newDefaultTime)
         }
-    }, defaultTime)
+    }, defaultTime[0])
 
 
     useEffect(() => {
         return () => {
-            clearInterval(interval)
+            // clearInterval(interval)
         }
     }, [timer])
 
@@ -61,23 +87,25 @@ const DummyWidgets = () => {
                         <DummyCircle w={28} h={28} />
                         <DummyCircle w={28} h={28} />
                     </div>
-                    <div className={`animation-dummy-rectangle ${classState} `} style={{ 
-                        transform: `translate(${movingDistance}px)`, top: '35px',
-                        left: '-65px' }}>
+                    <div className={`animation-dummy-rectangle ${classState[0]} `} style={{
+                        transform: `translate(${movingDistance[0]}px)`, top: '35px',
+                        left: '-65px'
+                    }}>
 
                     </div>
-                    <div className={`animation-dummy-square ${classState} `} style={{ 
-                        transform: `translateY(${movingDistance}px)`, top: '100px',
-                        left: '110px' }}>
+                    <div className={`animation-dummy-square ${classState[1]} `} style={{
+                        transform: `translateY(${movingDistance[1]}px)`, top: '100px',
+                        left: '110px'
+                    }}>
 
                     </div>
-                    <div className={`animation-dummy-square ${classState} `} style={{
+                    <div className={`animation-dummy-square ${classState[2]} `} style={{
                         transform: `translateY(${movingDistance}px)`, top: '250px',
                         left: '-120px'
                     }}>
 
                     </div>
-                    <div className={`animation-dummy-rectangle ${classState} `} style={{
+                    <div className={`animation-dummy-rectangle ${classState[3]} `} style={{
                         transform: `translate(${movingDistance}px)`, top: '300px',
                         left: '170px'
                     }}>
