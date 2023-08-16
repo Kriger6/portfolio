@@ -3,7 +3,9 @@ import './index.css'
 import DummySearchBar from './dummySearchBar'
 import DummyGridContent from './dummyGridContent'
 import DummyCircle from './dummyCircle'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { intervals } from './timer'
+import { Params } from './timer'
 const DummyWidgets = () => {
 
     let grid = Array(100).fill(undefined).map(() => <div key={uuidv4()} style={{
@@ -11,56 +13,98 @@ const DummyWidgets = () => {
     }}></div>)
 
     const [timer, setTimer] = useState<boolean[] | undefined>([false, false, false, false])
-    const [defaultTime, setDefaultTime] = useState<number[] | undefined>([1200, 4000, 8000, 12000])
+    const [defaultTime, setDefaultTime] = useState<number[] | undefined>([1200, 4000, 8500, 11000])
     const [classState, setClassState] = useState<string[] | undefined>([undefined, undefined, undefined, undefined])
     const [movingDistance, setMovingDistance] = useState<number[] | undefined>([0, 0, 0, 0])
+
+    const [focus, setFocus] = useState<boolean>(false)
+
+    const timerRef = useRef(undefined)
+    timerRef.current = timer
+
+    const defaultTimeRef = useRef(undefined)
+    defaultTimeRef.current = defaultTime
+
+    const classStateRef = useRef(undefined)
+    classStateRef.current = classState
+
+    const movingDistanceRef = useRef(undefined)
+    movingDistanceRef.current = movingDistance
 
     const animations = [
         'animation-dummy-item-in',
         'animation-dummy-item-out'
     ]
 
-    setTimeout(() => {
-        const newTimer = timer.map((time: boolean, index: number) => {
-            if (index === 0 && time === false) {
-                return time = true
-            } else {
-                return time = false
-            }
-        })        
-        setTimer(newTimer)
-        const newClassState = classState.map((x: string, index: number) => {
-            if(index === 0 && timer[0] === false) {
-                return x = animations[0]
-            } else if (index === 0 && timer[0] === true) {
-                return x = animations[1]
-            } else {
-                return x
-            }
-        })
-        setClassState(newClassState)
-        const newDistance = movingDistance.map((x: number, index: number) => {
-            if (index === 0 && timer[0] === true) {
-                return x = 0
-            } else if (index === 0 && timer[0] === false) {
-                return x = -50
-            } else return x
-        })
-        setMovingDistance(newDistance)
-        if (defaultTime[0] === 1200) {
-            const newDefaultTime = defaultTime.map((x: number) => {
-                return x = 8000
-            })
-            setDefaultTime(newDefaultTime)
-        }
-    }, defaultTime[0])
+    useEffect(() => {
+        const myFunc = () => {
+            if (!document.hidden) {
+                console.log("hello again");
 
+                setFocus(!focus)
+            }
+        }
+        document.addEventListener('visibilitychange', myFunc);
+
+        return () => document.removeEventListener('visibilitychange', myFunc)
+    })
 
     useEffect(() => {
-        return () => {
-            // clearInterval(interval)
-        }
-    }, [timer])
+        console.log(0);
+        
+        let t = setTimeout(() => {
+            intervals({
+                setTimer, setClassState, animations, setMovingDistance, setDefaultTime, 
+                boxIndex: 0, timerRef, defaultTimeRef, classStateRef, movingDistanceRef
+            })
+        }, defaultTime[0])
+
+        return () => clearTimeout(t)
+    }, [timer[0], focus])
+
+    useEffect(() => {
+        console.log(1);
+        
+        let t = setTimeout(() => {
+            intervals({
+                setTimer, setClassState, animations,
+                setMovingDistance, setDefaultTime, boxIndex: 1, timerRef, defaultTimeRef, 
+                classStateRef, movingDistanceRef
+            })
+        }, defaultTime[1])
+
+        return () => clearTimeout(t)
+    }, [timer[1], focus])
+
+    useEffect(() => {
+        console.log(2);
+        
+        let t = setTimeout(() => {
+            intervals({
+                setTimer, setClassState, animations,
+                setMovingDistance, setDefaultTime, boxIndex: 2, timerRef, defaultTimeRef,
+                classStateRef, movingDistanceRef
+            })
+        }, defaultTime[2])
+
+        return () => clearTimeout(t)
+    }, [timer[2], focus])
+
+    useEffect(() => {
+        console.log(3);
+        
+        let t = setTimeout(() => {
+            intervals({
+                setTimer, setClassState, animations,
+                setMovingDistance, setDefaultTime, boxIndex: 3, timerRef, defaultTimeRef,
+                classStateRef, movingDistanceRef
+            })
+        }, defaultTime[3])
+
+        return () => clearTimeout(t)
+    }, [timer[3], focus])
+
+    
 
     return (
         <div className='widget-container' style={{ display: "flex", width: "500px", height: "500px", flexWrap: "wrap" }}>
@@ -100,13 +144,13 @@ const DummyWidgets = () => {
 
                     </div>
                     <div className={`animation-dummy-square ${classState[2]} `} style={{
-                        transform: `translateY(${movingDistance}px)`, top: '250px',
+                        transform: `translateY(${movingDistance[2]}px)`, top: '250px',
                         left: '-120px'
                     }}>
 
                     </div>
                     <div className={`animation-dummy-rectangle ${classState[3]} `} style={{
-                        transform: `translate(${movingDistance}px)`, top: '300px',
+                        transform: `translate(${movingDistance[3]}px)`, top: '300px',
                         left: '170px'
                     }}>
 
