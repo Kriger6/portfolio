@@ -7,10 +7,10 @@ export interface Params {
     setMovingDistance: React.Dispatch<React.SetStateAction<number[]>>,
     setDefaultTime: React.Dispatch<React.SetStateAction<number[]>>,
     boxIndex: number,
-    timerRef: MutableRefObject<any>,
-    defaultTimeRef: MutableRefObject<any>,
-    classStateRef: MutableRefObject<any>,
-    movingDistanceRef: MutableRefObject<any>
+    timerRef: MutableRefObject<boolean[]>,
+    defaultTimeRef: MutableRefObject<number[]>,
+    classStateRef: MutableRefObject<string[]>,
+    movingDistanceRef: MutableRefObject<number[]>
 }
 
 export const intervals = ({ setTimer, setClassState, animations, setMovingDistance,

@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.dummy-circle {
+    border-radius: 50%;
+}
+
 .animation-dummy-base {
     width: 200px;
     height: 450px;

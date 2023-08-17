@@ -5,7 +5,9 @@ import DummyGridContent from './dummyGridContent'
 import DummyCircle from './dummyCircle'
 import { useEffect, useRef, useState } from 'react'
 import { intervals } from './timer'
-import { Params } from './timer'
+import DummyText from './dummyText'
+import DummyRectangle from './dummyRectangle'
+
 const DummyWidgets = () => {
 
     let grid = Array(100).fill(undefined).map(() => <div key={uuidv4()} style={{
@@ -17,7 +19,6 @@ const DummyWidgets = () => {
     const [classState, setClassState] = useState<string[] | undefined>([undefined, undefined, undefined, undefined])
     const [movingDistance, setMovingDistance] = useState<number[] | undefined>([0, 0, 0, 0])
 
-    const [focus, setFocus] = useState<boolean>(false)
 
     const timerRef = useRef(undefined)
     timerRef.current = timer
@@ -31,54 +32,41 @@ const DummyWidgets = () => {
     const movingDistanceRef = useRef(undefined)
     movingDistanceRef.current = movingDistance
 
-    const animations = [
+    const animations: string[] = [
         'animation-dummy-item-in',
         'animation-dummy-item-out'
     ]
 
-    useEffect(() => {
-        const myFunc = () => {
-            if (!document.hidden) {
-                console.log("hello again");
-
-                setFocus(!focus)
-            }
-        }
-        document.addEventListener('visibilitychange', myFunc);
-
-        return () => document.removeEventListener('visibilitychange', myFunc)
-    })
+    const firstSymbol = <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M142.9 96c-21.5 0-42.2 8.5-57.4 23.8L54.6 150.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L40.2 74.5C67.5 47.3 104.4 32 142.9 32C223 32 288 97 288 177.1c0 38.5-15.3 75.4-42.5 102.6L109.3 416H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9L200.2 234.5c15.2-15.2 23.8-35.9 23.8-57.4c0-44.8-36.3-81.1-81.1-81.1z" /></svg>
+    const secondSymbol = <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 64C0 46.3 14.3 32 32 32H352c12.4 0 23.7 7.2 29 18.4s3.6 24.5-4.4 34.1L100.3 416H352c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.4 0-23.7-7.2-29-18.4s-3.6-24.5 4.4-34.1L283.7 96H32C14.3 96 0 81.7 0 64z" /></svg>
 
     useEffect(() => {
-        console.log(0);
-        
+
         let t = setTimeout(() => {
             intervals({
-                setTimer, setClassState, animations, setMovingDistance, setDefaultTime, 
+                setTimer, setClassState, animations, setMovingDistance, setDefaultTime,
                 boxIndex: 0, timerRef, defaultTimeRef, classStateRef, movingDistanceRef
             })
         }, defaultTime[0])
 
         return () => clearTimeout(t)
-    }, [timer[0], focus])
+    }, [timer[0]])
 
     useEffect(() => {
-        console.log(1);
-        
+
         let t = setTimeout(() => {
             intervals({
                 setTimer, setClassState, animations,
-                setMovingDistance, setDefaultTime, boxIndex: 1, timerRef, defaultTimeRef, 
+                setMovingDistance, setDefaultTime, boxIndex: 1, timerRef, defaultTimeRef,
                 classStateRef, movingDistanceRef
             })
         }, defaultTime[1])
 
         return () => clearTimeout(t)
-    }, [timer[1], focus])
+    }, [timer[1]])
 
     useEffect(() => {
-        console.log(2);
-        
+
         let t = setTimeout(() => {
             intervals({
                 setTimer, setClassState, animations,
@@ -88,11 +76,10 @@ const DummyWidgets = () => {
         }, defaultTime[2])
 
         return () => clearTimeout(t)
-    }, [timer[2], focus])
+    }, [timer[2]])
 
     useEffect(() => {
-        console.log(3);
-        
+
         let t = setTimeout(() => {
             intervals({
                 setTimer, setClassState, animations,
@@ -102,9 +89,9 @@ const DummyWidgets = () => {
         }, defaultTime[3])
 
         return () => clearTimeout(t)
-    }, [timer[3], focus])
+    }, [timer[3]])
 
-    
+
 
     return (
         <div className='widget-container' style={{ display: "flex", width: "500px", height: "500px", flexWrap: "wrap" }}>
@@ -135,25 +122,55 @@ const DummyWidgets = () => {
                         transform: `translate(${movingDistance[0]}px)`, top: '35px',
                         left: '-65px'
                     }}>
-
+                        <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14} content={firstSymbol} />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
+                            <div style={{
+                                display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
+                                height: '75%', justifyContent: 'space-evenly'
+                            }}>
+                                <DummyText w={60} h={8} />
+                                <DummyText w={50} h={6} />
+                                <DummyText w={80} h={6} />
+                            </div>
+                            <div style={{ height: '75%' }}>
+                                <DummyText w={30} h={30} radiusOffset={0.5} />
+                            </div>
+                        </div>
                     </div>
                     <div className={`animation-dummy-square ${classState[1]} `} style={{
                         transform: `translateY(${movingDistance[1]}px)`, top: '100px',
                         left: '110px'
                     }}>
-
+                        <DummyRectangle />
                     </div>
                     <div className={`animation-dummy-square ${classState[2]} `} style={{
                         transform: `translateY(${movingDistance[2]}px)`, top: '250px',
                         left: '-120px'
                     }}>
-
+                        <DummyRectangle />
                     </div>
                     <div className={`animation-dummy-rectangle ${classState[3]} `} style={{
                         transform: `translate(${movingDistance[3]}px)`, top: '300px',
                         left: '170px'
                     }}>
-
+                        <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14} content={secondSymbol} />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
+                            <div style={{
+                                display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
+                                height: '75%', justifyContent: 'space-evenly'
+                            }}>
+                                <DummyText w={60} h={8} />
+                                <DummyText w={80} h={6} />
+                                <DummyText w={70} h={6} />
+                            </div>
+                            <div style={{
+                                display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
+                                height: '75%', justifyContent: 'space-between'
+                            }}>
+                                <DummyText w={35} h={18} radiusOffset={0.5} />
+                                <DummyText w={35} h={18} radiusOffset={0.5} />
+                            </div>
+                        </div>
                     </div>
 
                 </div>
