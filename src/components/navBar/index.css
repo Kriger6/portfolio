@@ -46,3 +46,8 @@
 .display-mode {
     height: inherit;
 }
+
+.active-nav-link {
+    text-decoration: underline;
+}
+

@@ -19,7 +19,7 @@ const Introduction = () => {
   })
 
   return (
-    <section className='introduction-section main-section'>
+    <section className='introduction-section main-section' id='introduction'> 
       <div className='introduction-landing'>
         <h1>I design and develop applications.</h1>
         <p>I'm a self-taught frontend developer with passion for building responsive websites.</p>
