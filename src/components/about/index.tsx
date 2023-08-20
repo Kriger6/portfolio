@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <section className="main-section about-section" id="about">
+        <section className="main-section about-section section" id="about">
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     ABOUT

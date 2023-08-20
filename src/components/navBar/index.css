@@ -47,7 +47,7 @@
     height: inherit;
 }
 
-.active-nav-link {
+.active {
     text-decoration: underline;
 }
 

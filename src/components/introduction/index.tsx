@@ -3,7 +3,7 @@ import DummyWidgets from '../dummyWidgets'
 import DarkWidgets from '../dummyWidgets'
 import './index.css'
 
-const Introduction = () => {
+const Introduction = ({sectionRef}: any) => {
 
   const [resetWidget, setResetWidget] = useState<number | undefined>(0)
 
@@ -19,7 +19,7 @@ const Introduction = () => {
   })
 
   return (
-    <section className='introduction-section main-section' id='introduction'> 
+    <section className='introduction-section main-section section' id='introduction' ref={sectionRef}> 
       <div className='introduction-landing'>
         <h1>I design and develop applications.</h1>
         <p>I'm a self-taught frontend developer with passion for building responsive websites.</p>

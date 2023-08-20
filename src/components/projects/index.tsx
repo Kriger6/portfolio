@@ -1,8 +1,8 @@
 import ProjectExample from "./projectExamples"
 
-const Projects = () => {
+const Projects = ({sectionRef}: any) => {
     return (
-        <section className="main-section projects-section" id="projects">
+        <section className="main-section projects-section section" id="projects" ref={sectionRef}>
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     PROJECTS
