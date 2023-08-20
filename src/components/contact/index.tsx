@@ -1,7 +1,7 @@
 
-const Contact = () => {
+const Contact = ({sectionRef}: any) => {
     return (
-        <section className="main-section contact-section section" id="contact">
+        <section className="main-section contact-section section" id="contact" ref={sectionRef}>
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     CONTACT

@@ -10,26 +10,36 @@ import Projects from './projects'
 
 const App = () => {
 
-  const introductionRef = useRef(undefined)
-  const projectsRef = useRef(undefined)
+  const introductionRef = useRef<HTMLElement | undefined>(undefined)
+  const projectsRef = useRef<HTMLElement | undefined>(undefined)
+  const aboutRef = useRef<HTMLElement | undefined>(undefined)
+  const contactRef = useRef<HTMLElement | undefined>(undefined)
 
-  const introductionLinkRef = useRef(undefined)
-  const projectsLinkRef = useRef(undefined)
 
-  const navLi = [introductionLinkRef, projectsLinkRef]
-  const sections = [introductionRef, projectsRef]
+  const introductionLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
+  const projectsLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
+  const aboutLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
+  const contactLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
+
+
+  const sections = [introductionRef, projectsRef, aboutRef, contactRef]
+  const navLi = [introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef]
 
   window.onscroll = () => {
     var current = "";
 
     sections.forEach((section) => {
       const sectionTop = section.current.offsetTop;
-      if (scrollY >= sectionTop - 60) {
+      if (section.current === sections[0].current) {
+        if (scrollY >= sectionTop - 125) {
+          current = section.current.getAttribute("id");
+        }
+      } else if(scrollY >= sectionTop - 60) {
         current = section.current.getAttribute("id");
-        console.log(current);
-        
+
       }
     });
+
 
     navLi.forEach((li) => {
       li.current.classList.remove("active");
@@ -39,18 +49,26 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    navLi.forEach((li) => {
+      if (li.current !== navLi[0].current && !li.current.classList.contains("active")) {
+        navLi[0].current.classList.add("active")
+      }
+    })
+
+  }, [])
 
 
-    return (
-      <div className='app-container' id='app-container'>
-        <NavBar introRef={introductionLinkRef} proRef={projectsLinkRef}/>
-        <Introduction sectionRef={introductionRef} />
-        <Projects sectionRef={projectsRef} />
-        <About />
-        <Contact />
-        <Footer />
-      </div>
-    )
-  }
+  return (
+    <div className='app-container' id='app-container'>
+      <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }}/>
+      <Introduction sectionRef={introductionRef} />
+      <Projects sectionRef={projectsRef} />
+      <About sectionRef={aboutRef} />
+      <Contact sectionRef={contactRef} />
+      <Footer />
+    </div>
+  )
+}
 
-  export default App
+export default App

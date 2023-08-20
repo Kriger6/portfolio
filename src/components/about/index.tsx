@@ -1,7 +1,7 @@
 
-const About = () => {
+const About = ({sectionRef}: any) => {
     return (
-        <section className="main-section about-section section" id="about">
+        <section className="main-section about-section section" id="about" ref={sectionRef}>
             <div className="section-border-container">
                 <h3 className="section-border-heading">
                     ABOUT
