@@ -8,12 +8,11 @@ const NavBar = ({linkRefs}: any) => {
   return (
     <header className="navbar"  >
       <Logo />
-      <section style={{width: '1px', height: '1px'}}></section>
       <div className="menu-links">
-        <a className="link-animation introduction" href="#app-container" ref={linkRefs.introRef}>Introduction</a>
-        <a className="link-animation projects" href="#projects" ref={linkRefs.proRef}>Projects</a>
-        <a className="link-animation about" href="#about" ref={linkRefs.aboutRef}>About</a>
-        <a className="link-animation contact" href="#contact" ref={linkRefs.contactRef}>Contact</a>
+        <a className="link-animation introduction" href="#app-container" ref={linkRefs.introductionLinkRef}>Introduction</a>
+        <a className="link-animation projects" href="#projects" ref={linkRefs.projectsLinkRef}>Projects</a>
+        <a className="link-animation about" href="#about" ref={linkRefs.aboutLinkRef}>About</a>
+        <a className="link-animation contact" href="#contact" ref={linkRefs.contactLinkRef}>Contact</a>
         <div className="display-mode">
           <DisplayMode />
         </div>
