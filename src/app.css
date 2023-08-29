@@ -111,3 +111,15 @@ h3 {
 .trademark {
     font-size: small;
 }
+
+.tech-icons-container {
+    margin-top: 100px;
+}
+
+.tech-icons-container div {
+    margin-top: 40px;
+}
+
+.tech-icons-container svg {
+    margin-right: 20px;
+}
