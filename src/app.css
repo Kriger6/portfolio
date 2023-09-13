@@ -27,7 +27,8 @@ a {
     font-size: 2rem;
 }
 
-.menu-links a:hover, a:hover {
+.menu-links a:hover,
+a:hover {
     color: #cecece;
 }
 
@@ -123,3 +124,38 @@ h3 {
 .tech-icons-container svg {
     margin-right: 20px;
 }
+
+.about-paragraph {
+    margin: 20px 0 20px 0;
+}
+
+.contact-label {
+    color: #B5B5B5;
+    font-size: 1.3rem;
+}
+
+.contact-label input,
+textarea {
+    background-color: #171717;
+    border-style: none;
+    border-bottom: 1px solid #454545;
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+form {
+    min-width: 550px
+}
+
+.submit-button {
+    background-color: #171717;
+    border-style: none;
+    color: #B5B5B5;
+}
+
+::placeholder {
+    color: #454545
+}
+

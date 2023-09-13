@@ -9,25 +9,28 @@ const Contact = ({sectionRef}: any) => {
                 <div className="section-border"></div>
             </div>
             <section className="section-content-container">
-                <div className="section-content">
-                    <p>Do not hesitate to contact me through the form here or by direct email on {" "}
-                        <span style={{ textDecoration: 'underline' }} >sasa.palinkas6@gmail.com</span> regardless of the subject.
+                <div className="section-content" style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <p style={{width: '50%'}}>Do not hesitate to contact me through the form here or by direct email on {" "}
+                        <a style={{fontSize: '1em', textUnderlineOffset: '5px', textDecorationColor: '#454545'}} href="mailto:sasa.palinkas6@gmail.com">sasa.palinkas6@gmail.com</a> regardless of the subject.
                     </p>
                     <form name="contact" id="contact-form">
                         <div>
-                            <label className="contact-labels" htmlFor="contact-form">What's your name?</label>
-                            <input type="text" name="name" id="" />
+                            <label className="contact-label" htmlFor="contact-form">What's your name?
+                                <input placeholder="Saša Palinkaš" type="text" name="name" id="" />
+                            </label>
                         </div>
                         <div>
-                            <label className="contact-labels" htmlFor="contact-form">Where can i reach you?</label>
-                            <input type="email" name="email" id="" />
+                            <label className="contact-label" htmlFor="contact-form">Where can i reach you?
+                                <input placeholder="sasa.palinkas6@gmail.com" type="email" name="email" id="" />
+                            </label>
                         </div>
                         <div>
-                            <label className="contact-labels" htmlFor="contact-form">What's your message?</label>
-                            <textarea name="message"></textarea>
+                            <label className="contact-label" htmlFor="contact-form">What's your message?
+                                <textarea placeholder="Hi Saša! Lets work!" name="message"></textarea>
+                            </label>
                         </div>
                         <div>
-                            <button type="submit">Send it</button>
+                            <button className="submit-button" type="submit">Send it</button>
                         </div>
                     </form>
                 </div>
