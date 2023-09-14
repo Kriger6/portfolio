@@ -42,7 +42,7 @@ header {
 }
 
 footer {
-    padding: 64px 0 64px 0;
+    padding: 30px 0 64px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -138,12 +138,23 @@ h3 {
 textarea {
     background-color: #171717;
     border-style: none;
-    border-bottom: 1px solid #454545;
     display: block;
     width: 100%;
     font-size: 1.5rem;
     padding: 20px;
+    color: #B5B5B5;
+    outline: none;
 }
+
+/* .contact-label input,
+textarea:valid {
+    border-bottom: 1px solid #454545;
+}
+
+.contact-label input,
+textarea:invalid {
+    border-bottom: 1px solid #DC6565
+} */
 
 form {
     min-width: 550px
@@ -153,9 +164,31 @@ form {
     background-color: #171717;
     border-style: none;
     color: #B5B5B5;
+    margin-top: 50px;
+    display: flex;
+    align-items: baseline;
+    font-size: 2rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.submit-button svg {
+    scale: 1;
+    transition: scale 0.3s;
+}
+
+.submit-button:hover svg {
+    scale: 1.5;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 0.3s;
+
 }
 
 ::placeholder {
     color: #454545
 }
 
+
+body::-webkit-scrollbar-thumb {
+    scrollbar-color: #000;
+}
