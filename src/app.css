@@ -70,10 +70,21 @@ h3 {
     padding-bottom: 200px;
 }
 
+.portrait-container img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-left: 60px;
+}
+
 .projects-section,
 .about-section,
 .contact-section {
     padding-top: 100px;
+}
+
+.about-details {
+    display: flex;
 }
 
 .section-border {
@@ -146,15 +157,6 @@ textarea {
     outline: none;
 }
 
-/* .contact-label input,
-textarea:valid {
-    border-bottom: 1px solid #454545;
-}
-
-.contact-label input,
-textarea:invalid {
-    border-bottom: 1px solid #DC6565
-} */
 
 form {
     min-width: 550px
