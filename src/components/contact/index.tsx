@@ -1,5 +1,27 @@
+import { useRef, useState } from 'react'
+import './index.css'
+import emailjs from '@emailjs/browser'
 
 const Contact = ({sectionRef}: any) => {
+
+    const [classState, setClassState] = useState<string[] | null>(null)
+
+    const form = useRef()
+
+    const sendEmail = (e: React.SyntheticEvent) => {
+        e.preventDefault()
+
+        emailjs.sendForm('service_ydn2kz3', 'template_nzp3g43', form.current, 'FHPTekC97nUwo_5pV')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            })
+    }
+
+
+
+
     return (
         <section className="main-section contact-section section" id="contact" ref={sectionRef}>
             <div className="section-border-container">
@@ -13,20 +35,20 @@ const Contact = ({sectionRef}: any) => {
                     <p style={{width: '50%'}}>Do not hesitate to contact me through the form here or by direct email on {" "}
                         <a style={{fontSize: '1em', textUnderlineOffset: '5px', textDecorationColor: '#454545'}} href="mailto:sasa.palinkas6@gmail.com">sasa.palinkas6@gmail.com</a> regardless of the subject.
                     </p>
-                    <form name="contact" id="contact-form">
+                    <form ref={form} onSubmit={sendEmail} name="contact" id="contact-form">
                         <div>
                             <label className="contact-label" htmlFor="contact-form">What's your name?
-                                <input required placeholder="Saša Palinkaš" type="text" name="name" id="" />
+                                <input className='input' required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
                             </label>
                         </div>
                         <div>
                             <label className="contact-label" htmlFor="contact-form">Where can i reach you?
-                                <input required placeholder="sasa.palinkas6@gmail.com" type="email" name="email" id="" />
+                                <input className='input' required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
                             </label>
                         </div>
                         <div>
                             <label className="contact-label" htmlFor="contact-form">What's your message?
-                                <textarea required placeholder="Hi Saša! Lets work!" name="message"></textarea>
+                                <textarea className='input' required placeholder="Hi Saša! Lets work!" name="message"></textarea>
                             </label>
                         </div>
                         <div>
