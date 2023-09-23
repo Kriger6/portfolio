@@ -16,3 +16,14 @@ h1 {
 .widgets-container {
     margin-top: 180px;
 }
+
+a svg {
+    transform: rotate(-45deg);
+    transition: transform 0.3s;
+}
+
+a:hover svg {
+    transform: translateX(2px) rotate(-45deg) translateY(3px);
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+
+}

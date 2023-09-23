@@ -1,10 +1,29 @@
 .input {
+    border-bottom: 1px solid crimson;
+}
+
+input,
+textarea {
     border-left: 0;
     border-right: 0;
     border-top: 0;
-    border-bottom: 1px solid crimson;
 }
 
 textarea {
     height: 180px;
+}
+
+.warning-message {
+    font-size: smaller;
+    font-weight: lighter;
+    color: crimson;
+    margin-bottom: 40px;
+}
+
+.warning-message-disabled {
+    display: none;
+}
+
+.pass {
+    border-bottom: 1px solid #20BE5B
 }
