@@ -18,6 +18,11 @@ const Contact = ({ sectionRef }: any) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
         setValue: React.Dispatch<React.SetStateAction<string>>) => {
         setValue(e.target.value)
+        setStyling(e, setValue)
+    }
+    
+
+    const setStyling = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, setValue: React.Dispatch<React.SetStateAction<string>>) => {
         if (e.target.value !== "") {
             if (setValue === setNameInput) {
                 setInputStyle(["", inputStyle[1], inputStyle[2]])
@@ -49,10 +54,12 @@ const Contact = ({ sectionRef }: any) => {
 
 
     const handleValidation = () => {
-        setIsSubmitted(true)
+        if (isSubmitted === false) {
+            setIsSubmitted(true)
+        }
 
 
-        if (nameInput === null || nameInput === "" || nameInput.length === 1) {
+        if (nameInput === null || nameInput === "" || nameInput.length === 1) {             
             setInputStyle(prevState => ["input", prevState[1], prevState[2]])
             setWarningMessage(prevState => ["warning-message", prevState[1], prevState[2]])
         }
@@ -87,15 +94,28 @@ const Contact = ({ sectionRef }: any) => {
         if (isSubmitted === true) {
             handleValidation()
         }
-        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput.length > 0) {
-            setInputStyle(["pass", "pass", "pass"])
-        } else {
-            setInputStyle(["", "", ""])
-        }
 
     }, [nameInput, emailInput, messageInput])
 
+    useEffect(() => {                
+        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {
+            setInputStyle(["pass", "pass", "pass"])
+        } else if (isSubmitted === true) {
+            let finalStyling = warningMessage.map((x) => {
+                if (x === "warning-message") {
+                    return "input"
+                } else {
+                    return ""
+                }
+            })
+            
+            setInputStyle(finalStyling)
+        } else if(isSubmitted === false) {    
+            setInputStyle(["", "", ""])
+        }
+    }, [warningMessage, messageInput])
 
+    
     return (
         <section className="main-section contact-section section" id="contact" ref={sectionRef}>
             <div className="section-border-container">
@@ -149,4 +169,3 @@ const Contact = ({ sectionRef }: any) => {
 
 export default Contact
 
-// #20BE5B
