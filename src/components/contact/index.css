@@ -1,9 +1,18 @@
+.contact-label:nth-child(2) {
+    margin-top: 40px;
+}
+
+.contact-label:nth-child(3) {
+    margin-top: 40px;
+}
+
 .input {
     border-bottom: 1px solid crimson;
 }
 
 input,
 textarea {
+    margin-top: 8px;
     border-left: 0;
     border-right: 0;
     border-top: 0;

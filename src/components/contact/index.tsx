@@ -20,14 +20,14 @@ const Contact = ({ sectionRef }: any) => {
         setValue(e.target.value)
         setStyling(e, setValue)
     }
-    
+
 
     const setStyling = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, setValue: React.Dispatch<React.SetStateAction<string>>) => {
         if (e.target.value !== "") {
             if (setValue === setNameInput) {
                 setInputStyle(["", inputStyle[1], inputStyle[2]])
                 setWarningMessage(prevState => ["", prevState[1], prevState[2]])
-            } else if (setValue === setEmailInput) {
+            } else if (setValue === setEmailInput && isEmailValid(emailInput) === true) {
                 setInputStyle([inputStyle[0], "", inputStyle[2]])
                 setWarningMessage(prevState => [prevState[0], "", prevState[2]])
             } else if (setValue === setMessageInput) {
@@ -59,7 +59,7 @@ const Contact = ({ sectionRef }: any) => {
         }
 
 
-        if (nameInput === null || nameInput === "" || nameInput.length === 1) {             
+        if (nameInput === null || nameInput === "" || nameInput.length === 1) {
             setInputStyle(prevState => ["input", prevState[1], prevState[2]])
             setWarningMessage(prevState => ["warning-message", prevState[1], prevState[2]])
         }
@@ -97,7 +97,7 @@ const Contact = ({ sectionRef }: any) => {
 
     }, [nameInput, emailInput, messageInput])
 
-    useEffect(() => {                
+    useEffect(() => {
         if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {
             setInputStyle(["pass", "pass", "pass"])
         } else if (isSubmitted === true) {
@@ -108,14 +108,14 @@ const Contact = ({ sectionRef }: any) => {
                     return ""
                 }
             })
-            
+
             setInputStyle(finalStyling)
-        } else if(isSubmitted === false) {    
+        } else if (isSubmitted === false) {
             setInputStyle(["", "", ""])
         }
     }, [warningMessage, messageInput])
 
-    
+
     return (
         <section className="main-section contact-section section" id="contact" ref={sectionRef}>
             <div className="section-border-container">
@@ -135,31 +135,23 @@ const Contact = ({ sectionRef }: any) => {
                         }
                         sendEmail(e)
                     }} name="contact" id="contact-form">
-                        <div>
-                            <label className="contact-label" htmlFor="contact-form">What's your name?
-                                <input className={inputStyle[0]} onChange={(e) => handleChange(e, setNameInput)} required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
-                                <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
-                            </label>
-                        </div>
-                        <div>
-                            <label className="contact-label" htmlFor="contact-form">Where can i reach you?
-                                <input className={inputStyle[1]} pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
-                                <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
-                            </label>
-                        </div>
-                        <div>
-                            <label className="contact-label" htmlFor="contact-form">What's your message?
-                                <textarea className={inputStyle[2]} onChange={(e) => handleChange(e, setMessageInput)} required placeholder="Hi Saša! Lets work!" name="message"></textarea>
-                                <p className={warningMessage[2] === "" ? "warning-message-disabled" : warningMessage[2]}>You need to send me a message!</p>
-                            </label>
-                        </div>
-                        <div>
-                            <button onClick={handleValidation} className="submit-button" type="submit">Send it
-                                <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: '15px' }} width={'25px'} height={'25px'} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                                    <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
-                                </svg>
-                            </button>
-                        </div>
+                        <label className="contact-label" htmlFor="contact-form">What's your name?
+                            <input className={inputStyle[0]} onChange={(e) => handleChange(e, setNameInput)} required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
+                            <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
+                        </label>
+                        <label className="contact-label" htmlFor="contact-form">Where can i reach you?
+                            <input className={inputStyle[1]} pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
+                            <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
+                        </label>
+                        <label className="contact-label" htmlFor="contact-form">What's your message?
+                            <textarea className={inputStyle[2]} onChange={(e) => handleChange(e, setMessageInput)} required placeholder="Hi Saša! Lets work!" name="message"></textarea>
+                            <p className={warningMessage[2] === "" ? "warning-message-disabled" : warningMessage[2]}>You need to send me a message!</p>
+                        </label>
+                        <button onClick={handleValidation} className="submit-button" type="submit">Send it
+                            <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: '15px' }} width={'25px'} height={'25px'} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                                <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                            </svg>
+                        </button>
                     </form>
                 </div>
             </section>

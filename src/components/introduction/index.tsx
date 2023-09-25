@@ -21,7 +21,7 @@ const Introduction = ({sectionRef}: any) => {
   return (
     <section className='introduction-section main-section section' id='introduction' ref={sectionRef}> 
       <div className='introduction-landing'>
-        <h1>I design and develop applications.</h1>
+        <h1 className='fadeIn'><span>I </span><span>design </span><span>and </span>develop applications.</h1>
         <p>I'm a self-taught frontend developer with passion for building responsive websites.</p>
         <div style={{marginTop: '60px', display: "inline-block"}}>
           <a href='#projects' style={{display: 'flex', alignItems: "end", textDecoration: "none"}}>Explore my projects
