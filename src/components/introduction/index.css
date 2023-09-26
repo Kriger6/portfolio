@@ -3,10 +3,12 @@ h1 {
     font-size: 4.7rem;
     margin-top: 150px;
     font-weight: normal;
+    max-width: 700px;
 }
 
 .introduction-section {
     display: flex;
+    justify-content: space-between;
 }
 
 .introduction-landing p {
@@ -27,3 +29,24 @@ a:hover svg {
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 
 }
+
+.header-letter {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 0%;
+    animation-name: header-letter;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out
+}
+
+@keyframes header-letter {
+    0% {
+        line-height: 0%;
+    }
+
+    100% {
+        line-height: 150%;
+    }
+}
+

@@ -27,12 +27,15 @@ const Contact = ({ sectionRef }: any) => {
             if (setValue === setNameInput) {
                 setInputStyle(["", inputStyle[1], inputStyle[2]])
                 setWarningMessage(prevState => ["", prevState[1], prevState[2]])
-            } else if (setValue === setEmailInput && isEmailValid(emailInput) === true) {
+            } else if (setValue === setEmailInput && isEmailValid(e.target.value) === true) {
                 setInputStyle([inputStyle[0], "", inputStyle[2]])
                 setWarningMessage(prevState => [prevState[0], "", prevState[2]])
             } else if (setValue === setMessageInput) {
                 setInputStyle([inputStyle[0], inputStyle[1], ""])
                 setWarningMessage(prevState => [prevState[0], prevState[1], ""])
+            } else if (isSubmitted === false) {
+                setInputStyle([inputStyle[0], "", inputStyle[2]])
+                setWarningMessage(prevState => [prevState[0], "", prevState[2]])
             }
         }
     }
@@ -56,8 +59,7 @@ const Contact = ({ sectionRef }: any) => {
     const handleValidation = () => {
         if (isSubmitted === false) {
             setIsSubmitted(true)
-        }
-
+        }        
 
         if (nameInput === null || nameInput === "" || nameInput.length === 1) {
             setInputStyle(prevState => ["input", prevState[1], prevState[2]])
@@ -79,7 +81,7 @@ const Contact = ({ sectionRef }: any) => {
     }
 
     const isEmailValid = (email: string) => {
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         return emailRegex.test(email);
     }
 
@@ -98,7 +100,7 @@ const Contact = ({ sectionRef }: any) => {
     }, [nameInput, emailInput, messageInput])
 
     useEffect(() => {
-        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {
+        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {            
             setInputStyle(["pass", "pass", "pass"])
         } else if (isSubmitted === true) {
             let finalStyling = warningMessage.map((x) => {
@@ -140,7 +142,7 @@ const Contact = ({ sectionRef }: any) => {
                             <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
                         </label>
                         <label className="contact-label" htmlFor="contact-form">Where can i reach you?
-                            <input className={inputStyle[1]} pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
+                            <input className={inputStyle[1]} pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
                             <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
                         </label>
                         <label className="contact-label" htmlFor="contact-form">What's your message?
