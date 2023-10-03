@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../app.css'
 import About from './about'
 import Contact from './contact'
@@ -59,10 +59,11 @@ const App = () => {
   }, [])
 
 
+
   return (
     <div className='app-container' id='app-container'>
       <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }}/>
-      <Introduction sectionRef={introductionRef} />
+      <Introduction sectionRef={{introductionRef}} />
       <Projects sectionRef={projectsRef} />
       <About sectionRef={aboutRef} />
       <Contact sectionRef={contactRef} />
