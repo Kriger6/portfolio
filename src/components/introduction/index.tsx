@@ -58,14 +58,20 @@ const Introduction = ({ sectionRef }: any) => {
         <h1 className='observee' style={{ display: headerDisplay }}>
           {
             headerLetters.map((letter, index) => {
-              return <span className='header-letter' key={index} style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>{letter}</span>
+              return (
+                <span key={index} style={{display: 'inline-block', overflow: 'hidden'}}>
+                  <span className='header-letter' style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>
+                    {letter}
+                  </span>
+                </span>
+              )
             })
           }
         </h1>
         <p className='observee'>I'm a self-taught frontend developer with passion for building responsive websites.</p>
         <div className='observee' style={{ marginTop: '60px', display: "inline-block" }}>
           <a href='#projects' style={{ display: 'flex', alignItems: "end", textDecoration: "none" }}>Explore my projects
-            <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: "15px" }} width={"26px"} height={"26px"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+            <svg className="w-6 h-6 text-gray-800 dark:text-white arrow-to-projects" style={{ marginLeft: "15px" }} width={"26px"} height={"26px"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
               <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="M5 1v12m0 0 4-4m-4 4L1 9" />
             </svg>
           </a>

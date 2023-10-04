@@ -5,10 +5,12 @@ h1 {
     font-weight: normal;
     max-width: 700px;
     line-height: 1;
+    overflow: hidden;
 }
 
 .introduction-section {
     display: flex;
+    height: 880px;
     justify-content: space-between;
 }
 
@@ -22,6 +24,7 @@ h1 {
     animation-fill-mode: forwards;
     animation-delay: 2s;
     opacity: 0;
+    transform: translate(0, 5px);
 }
 
 .widgets-container {
@@ -49,12 +52,12 @@ a:hover svg {
 
 .header-letter {
     display: inline-block;
-    overflow: hidden;
-    line-height: 0%;
+    transform: translate(0, 75px);
     animation-name: header-letter;
     animation-duration: .3s;
     animation-fill-mode: forwards;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    vertical-align: text-top;
 }
 
 .introduction-link-to-projects {
@@ -63,15 +66,21 @@ a:hover svg {
     animation-delay: 2.5s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    transform: translate(0, 5px);
+}
+
+.arrow-to-projects {
+    fill-opacity: 0%;
+    animation-name: arrow-animation;
 }
 
 @keyframes header-letter {
     0% {
-        line-height: 0%;
+        transform: translate(0, 75px);
     }
 
     100% {
-        line-height: 150%;
+        transform: translate(0, 0px);
     }
 }
 
@@ -88,19 +97,33 @@ a:hover svg {
 @keyframes introduction-landing-paragraph {
     0% {
         opacity: 0%;
+        transform: translate(0, 5px);
     }
 
     100% {
         opacity: 100%;
+        transform: translate(0, 0px);
     }
 }
 
 @keyframes introduction-link-to-projects {
     0% {
         opacity: 0%;
+        transform: translate(0, 5px);
     }
 
     100% {
         opacity: 100%;
+        transform: translate(0, 0px);
+    }
+}
+
+@keyframes arrow-animation {
+    0% {
+        fill-opacity: 0;
+    }
+
+    100% {
+        fill-opacity: 100%;
     }
 }
