@@ -7,17 +7,16 @@ const Introduction = ({ sectionRef }: any) => {
   const [resetWidget, setResetWidget] = useState<number | undefined>(0)
   const [widgetDisplay, setWidgetDisplay] = useState<string | undefined>("none")
   const [headerDisplay, setHeaderDisplay] = useState<string | undefined>("none")
-
+  const [introductionVisibility, setIntroductionVisibility] = useState<string | undefined>("hidden")
+  const [classes, setClasses] = useState<string[] | undefined>(["", "", "hidden-widgets-container", ""])
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setHeaderDisplay("block")
-          document.querySelectorAll(".observee")[1].classList.add("introduction-paragraph-animation")
-          document.querySelectorAll(".observee")[2].classList.add("introduction-link-to-projects")
-          document.querySelectorAll(".observee")[3].classList.remove("hidden-widgets-container")
-          document.querySelectorAll(".observee")[3].classList.add("widgets-container")
+          setIntroductionVisibility("visible")
+          setClasses(["introduction-paragraph-animation", "introduction-link-to-projects", "", "widgets-container"  ])
 
           setTimeout(() => {
             setWidgetDisplay("block")
@@ -48,18 +47,23 @@ const Introduction = ({ sectionRef }: any) => {
 
 
 
+
+  const visibilityStyle = {
+    visibility: introductionVisibility,
+  } as React.CSSProperties;
+
   const headerString = "I design and develop applications."
   const headerLetters = headerString.split('')
 
 
   return (
     <section className={`introduction-section main-section section`} id='introduction' ref={sectionRef.introductionRef}>
-      <div className='introduction-landing'>
+      <div className='introduction-landing' style={visibilityStyle}>
         <h1 className='observee' style={{ display: headerDisplay }}>
           {
             headerLetters.map((letter, index) => {
               return (
-                <span key={index} style={{display: 'inline-block', overflow: 'hidden'}}>
+                <span key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
                   <span className='header-letter' style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>
                     {letter}
                   </span>
@@ -68,8 +72,8 @@ const Introduction = ({ sectionRef }: any) => {
             })
           }
         </h1>
-        <p className='observee'>I'm a self-taught frontend developer with passion for building responsive websites.</p>
-        <div className='observee' style={{ marginTop: '60px', display: "inline-block" }}>
+        <p className={classes[0]}>I'm a self-taught frontend developer with passion for building responsive websites.</p>
+        <div className={classes[1]} style={{ marginTop: '60px', display: "inline-block" }}>
           <a href='#projects' style={{ display: 'flex', alignItems: "end", textDecoration: "none" }}>Explore my projects
             <svg className="w-6 h-6 text-gray-800 dark:text-white arrow-to-projects" style={{ marginLeft: "15px" }} width={"26px"} height={"26px"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
               <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="M5 1v12m0 0 4-4m-4 4L1 9" />
@@ -77,7 +81,7 @@ const Introduction = ({ sectionRef }: any) => {
           </a>
         </div>
       </div>
-      <div className='hidden-widgets-container observee' style={{ display: widgetDisplay }}>
+      <div className={classes[2] + classes[3]} style={{ display: widgetDisplay }}>
         {widgetDisplay === "block" ? <DummyWidgets key={resetWidget} /> : ""}
       </div>
     </section>

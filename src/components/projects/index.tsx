@@ -1,6 +1,47 @@
+import { useEffect } from "react"
 import ProjectExample from "./projectExamples"
+import './index.css'
 
 const Projects = ({sectionRef}: any) => {
+
+    
+
+    useEffect(() => {
+        const headingObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    
+                    
+                }
+            })
+        })
+
+        headingObserver.observe(document.querySelector(".section-border-container"))
+
+        const paragraphObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+
+                }
+            })
+        })
+
+        paragraphObserver.observe(document.querySelector(".section-content"))
+
+        const projectExamplesObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+
+                }
+            })
+        })
+
+        projectExamplesObserver.observe(document.querySelector(".example-container"))
+
+    }, [])
+
     return (
         <section className="main-section projects-section section" id="projects" ref={sectionRef}>
             <div className="section-border-container">

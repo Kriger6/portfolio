@@ -1,0 +1,15 @@
+<svg width="24.000000000000004" height="24.000000000000004" xmlns="http://www.w3.org/2000/svg" fill="none">
+ <g>
+  <title>Layer 1</title>
+  <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+  <g opacity="1" filter="url(#SVGRepo_iconCarrier_blur)" id="SVGRepo_iconCarrier">
+   <path d="m13,6l0,-3m5.5,9l0,-5m-4,-2.5l-3,0m9.5,5l-5,0m-0.4452,7.3151c1.2281,0 2.3945,-0.2645 3.4452,-0.7397c-1.3133,2.904 -4.2358,4.9246 -7.6302,4.9246c-4.62249,0 -8.3698,-3.7473 -8.3698,-8.3698c0,-3.39444 2.02061,-6.31689 4.92462,-7.6302c-0.47518,1.05072 -0.7397,2.21708 -0.7397,3.44523c0,4.62257 3.74728,8.36987 8.36988,8.36987z" stroke="#d3d3d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="svg_1"/>
+  </g>
+ </g>
+ <defs>
+  <filter id="SVGRepo_iconCarrier_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+</svg>
