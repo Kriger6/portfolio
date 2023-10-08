@@ -59,7 +59,7 @@ const Introduction = ({ sectionRef }: any) => {
   return (
     <section className={`introduction-section main-section section`} id='introduction' ref={sectionRef.introductionRef}>
       <div className='introduction-landing' style={visibilityStyle}>
-        <h1 className='observee' style={{ display: headerDisplay }}>
+        <h1 style={{ display: headerDisplay }}>
           {
             headerLetters.map((letter, index) => {
               return (

@@ -1,3 +1,88 @@
-.section-content p {
+.projects-header {
     margin-bottom: 80px;
+}
+
+.section-border-heading {
+    animation-name: section-border-heading;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translate(-5px, 0px)
+}
+
+.section-border {
+    transform: scale(.5);
+    transform-origin: bottom left;
+    animation-name: section-border;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.section-content {
+    animation-name: section-content;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.project-card {
+    transform: scale(0);
+    background-color: #303037;
+    animation-name: project-card;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    transform-origin: left;
+    transition-timing-function: ease-out;
+}
+
+figure {
+    scale: 1;  
+    transition: scale 0.3s;
+}
+
+figure:hover {
+    scale: 1.05;
+    transition-duration: 0.3s;
+}
+
+
+@keyframes section-border {
+    0% {
+        transform: scale(.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes section-border-heading {
+    0% {
+        opacity: 0%;
+        transform: translate(-5px, 0px)
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translate(0px, 0px)
+    }
+}
+
+@keyframes section-content {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes project-card {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
 }
