@@ -2,3 +2,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.project-thumbnail {
+    animation-name: project-thumbnail;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes project-thumbnail {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
