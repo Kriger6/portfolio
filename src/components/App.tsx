@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import '../app.css'
 import About from './about'
 import Contact from './contact'

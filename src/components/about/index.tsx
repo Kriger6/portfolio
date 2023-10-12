@@ -1,14 +1,33 @@
+import { useEffect, useState } from 'react'
 import image from '../../assets/portfolio_selfie.png'
+import './index.css'
 
 
 const About = ({ sectionRef }: any) => {
+
+    const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["",""])
+
+    
+    useEffect(() => {
+        const sectionBorderObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setBorderContainerClasses(["section-border-heading", "section-border"])
+                }
+            }))        
+        })
+    
+        sectionBorderObserver.observe(document.querySelector(".section-border-container"))
+
+    }, [])
+
     return (
         <section className="main-section about-section section" id="about" ref={sectionRef}>
             <div className="section-border-container">
-                <h3 className="section-border-heading">
+                <h3 className={borderContainerClasses[0]} style={{opacity: 0}}>
                     ABOUT
                 </h3>
-                <div className="section-border"></div>
+                <div className={borderContainerClasses[1]}></div>
             </div>
             <section className="section-content-container">
                 <div className="section-content">
