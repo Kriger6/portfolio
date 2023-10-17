@@ -7,23 +7,23 @@ const Projects = ({ sectionRef }: any) => {
     const [classes, setClasses] = useState<string[] | undefined>(["", "", "", ""])
     const [shouldLoadPhoto, setShouldLoadPhoto] = useState<boolean[]>([false, false, false])
 
-    const firstProjectPhoto = useRef<HTMLDivElement>(null)
-    const secondProjectPhoto = useRef<HTMLDivElement>(null)
-    const thirdProjectPhoto = useRef<HTMLDivElement>(null)
+    const firstProjectPhotoRef = useRef<HTMLDivElement>(null)
+    const secondProjectPhotoRef = useRef<HTMLDivElement>(null)
+    const thirdProjectPhotoRef = useRef<HTMLDivElement>(null)
 
 
     
 
     useEffect(() => {
-        firstProjectPhoto?.current?.addEventListener('animationend', () => {            
+        firstProjectPhotoRef?.current?.addEventListener('animationend', () => {            
             setShouldLoadPhoto(prevState => [true, prevState[1], prevState[2]])
         })
 
-        secondProjectPhoto?.current?.addEventListener('animationend', () => {
+        secondProjectPhotoRef?.current?.addEventListener('animationend', () => {
             setShouldLoadPhoto(prevState => [prevState[0], true, prevState[2]])
         })
 
-        thirdProjectPhoto?.current?.addEventListener('animationend', () => {
+        thirdProjectPhotoRef?.current?.addEventListener('animationend', () => {
             setShouldLoadPhoto(prevState => [prevState[0], prevState[1], true])
         }, {once: true})
 
@@ -76,17 +76,17 @@ const Projects = ({ sectionRef }: any) => {
                     <p className="projects-header">Check out some of my main projects i have worked on.</p>
                 </div>
                 <div className="section-content example-container">
-                    <figure ref={firstProjectPhoto}>
+                    <figure ref={firstProjectPhotoRef}>
                         <div className={classes[3]} style={{ height: "300px", width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[0]} />
                         </div>
                     </figure>
-                    <figure ref={secondProjectPhoto}>
+                    <figure ref={secondProjectPhotoRef}>
                         <div className={classes[3]} style={{ animationDelay: '.3s', height: "300px", width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[1]} />
                         </div>
                     </figure>
-                    <figure ref={thirdProjectPhoto}>
+                    <figure ref={thirdProjectPhotoRef}>
                         <div className={classes[3]} style={{ animationDelay: '.5s', height: "300px", width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[2]} />
                         </div>

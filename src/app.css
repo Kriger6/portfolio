@@ -74,7 +74,6 @@ h3 {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    margin-left: 60px;
 }
 
 .projects-section,
@@ -134,10 +133,6 @@ h3 {
 
 .tech-icons-container svg {
     margin-right: 20px;
-}
-
-.about-paragraph {
-    margin: 20px 0 20px 0;
 }
 
 .contact-label {

@@ -1,0 +1,110 @@
+.about-heading {
+    animation-name: about-heading;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.skills-heading {
+    animation-name: skills-heading;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.about-paragraphs {
+    max-width: 71%;
+}
+
+.about-paragraph {
+    animation-name: about-paragraph;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.portrait-container {
+    transform: scale(0);
+    animation-name: portrait-container;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    transform-origin: left;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+    background-color: #303037;
+    margin-left: 60px;
+    height: 300px;
+    width: 300px;
+
+}
+
+.portrait-photo {
+    opacity: 0%;
+    animation-name: portrait-photo;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.skill-icon {
+    transform: scale(0);
+    transform-origin: bottom right 10px;
+    animation-name: skill-icon;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+}
+
+@keyframes skill-icon {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes about-heading {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes skills-heading {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes about-paragraph {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes portrait-container {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes portrait-photo {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}

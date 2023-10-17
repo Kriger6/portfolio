@@ -1,56 +1,95 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import image from '../../assets/portfolio_selfie.png'
 import './index.css'
 
 
 const About = ({ sectionRef }: any) => {
 
-    const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["",""])
+    const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
+    const [aboutHeaderClass, setAboutHeaderClass] = useState<string>("")
+    const [aboutDetailClasses, setAboutDetailClasses] = useState<string[]>(["", "", ""])
+    const [skillsClasses, setSkillsClasses] = useState<string[]>(["", ""])
+    const [shouldPortraitLoad, setShouldPortraitLoad] = useState<boolean>(false)
 
-    
+    const portraitContainerRef = useRef<HTMLDivElement>(null)
+
     useEffect(() => {
+        portraitContainerRef?.current?.addEventListener('animationend', () => {
+            setShouldPortraitLoad(true)
+        })
+
         const sectionBorderObserver = new IntersectionObserver(entries => {
             entries.forEach((entry => {
                 if (entry.isIntersecting) {
                     setBorderContainerClasses(["section-border-heading", "section-border"])
                 }
-            }))        
+            }))
         })
-    
-        sectionBorderObserver.observe(document.querySelector(".section-border-container"))
+
+        sectionBorderObserver.observe(document.querySelectorAll(".section-border-container")[1])
+
+        const aboutHeaderObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setAboutHeaderClass("section-content")
+                }
+            }))
+        })
+
+        aboutHeaderObserver.observe(document.querySelectorAll(".section-content")[1])
+
+        const aboutDetailObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setAboutDetailClasses(["about-heading", "about-paragraph", "portrait-container"])
+                }
+            }))
+        })
+
+        aboutDetailObserver.observe(document.querySelector(".about-details"))
+
+        const skillsObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setSkillsClasses(["skills-heading", "skill-icon"])
+                }
+            }))
+        })
+
+        skillsObserver.observe(document.querySelector(".tech-icons-container"))
 
     }, [])
 
     return (
         <section className="main-section about-section section" id="about" ref={sectionRef}>
             <div className="section-border-container">
-                <h3 className={borderContainerClasses[0]} style={{opacity: 0}}>
+                <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
                     ABOUT
                 </h3>
                 <div className={borderContainerClasses[1]}></div>
             </div>
             <section className="section-content-container">
                 <div className="section-content">
-                    <p style={{ marginBottom: '70px', width: '60%' }}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
+                    <p className={aboutHeaderClass} style={{ marginBottom: '70px', width: '60%', opacity: 0 }}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
                 </div>
                 <div className="section-content about-details">
                     <div className="about-paragraphs">
-                        <h3>WHO AM I</h3>
-                        <p className="about-paragraph">My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer</p>
-                        <p className="about-paragraph">Front-end has been my main focus ever since i started learning programming.</p>
-                        <p className="about-paragraph">I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies</p>
-                        <p className="about-paragraph">Spending time customizing, improving and tinkering with my work environment and tools is something I enjoy a lot, as it is something i use for many hours daily.
+                        <h3 className={aboutDetailClasses[0]}>WHO AM I</h3>
+                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.2s" }}>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer.</p>
+                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.5s" }}>Front-end has been my main focus ever since i started learning programming.</p>
+                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.7s" }}>I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies.</p>
+                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.9s" }}>Spending time customizing, improving and tinkering with my work environment and tools is something I enjoy a lot, as it is something i use for many hours daily.
                             It allows me to have it exactly as i desire. For intstance, I use Visual studio code as my editor of choice.
                         </p>
                     </div>
-                    <div className='portrait-container'>
-                        <img src={image}></img>
+                    <div ref={portraitContainerRef} className={aboutDetailClasses[2]}>
+                        {shouldPortraitLoad === true ? <img className="portrait-photo" src={image}></img> : ""}
                     </div>
                 </div>
                 <div className="section-content tech-icons-container">
-                    <h3>TECH I ENJOY</h3>
+                    <h3 className={skillsClasses[0]}>TECH I ENJOY</h3>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+                        <svg className={skillsClasses[1]} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
                             <path fill="#8f8f8f" d="M6,42V6h36v36H6z"></path><path fill="#171717" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
