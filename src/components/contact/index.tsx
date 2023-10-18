@@ -6,10 +6,15 @@ import { useEffect } from 'react'
 
 const Contact = ({ sectionRef }: any) => {
 
+    const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
+    const [contactClasses, setContactClasses] = useState<string[]>(["", ""])
+
+
+    
     const [nameInput, setNameInput] = useState<string | null>("")
     const [emailInput, setEmailInput] = useState<string | null>("")
     const [messageInput, setMessageInput] = useState<string | null>("")
-
+    
     const [inputStyle, setInputStyle] = useState<string[] | null>([null, null, null])
     const [warningMessage, setWarningMessage] = useState<string[] | null>(["", "", ""])
 
@@ -20,8 +25,8 @@ const Contact = ({ sectionRef }: any) => {
         setValue(e.target.value)
         setStyling(e, setValue)
     }
-
-
+    
+    
     const setStyling = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, setValue: React.Dispatch<React.SetStateAction<string>>) => {
         if (e.target.value !== "") {
             if (setValue === setNameInput) {
@@ -39,8 +44,8 @@ const Contact = ({ sectionRef }: any) => {
             }
         }
     }
-
-
+    
+    
     const form = useRef()
 
     const sendEmail = (e: React.SyntheticEvent) => {
@@ -59,7 +64,7 @@ const Contact = ({ sectionRef }: any) => {
     const handleValidation = () => {
         if (isSubmitted === false) {
             setIsSubmitted(true)
-        }        
+        }
 
         if (nameInput === null || nameInput === "" || nameInput.length === 1) {
             setInputStyle(prevState => ["input", prevState[1], prevState[2]])
@@ -91,7 +96,31 @@ const Contact = ({ sectionRef }: any) => {
             return false
         }
     }
+    
+    useEffect(() => {
+        const sectionBorderObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setBorderContainerClasses(["section-border-heading", "section-border"])
+                }
+            }))
+        })
 
+        sectionBorderObserver.observe(document.querySelectorAll(".section-border-container")[2])
+
+        const contactSectionObserver = new IntersectionObserver(entries => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    setContactClasses(["contact-paragraph", "contact-label"])
+                }
+            }))
+        })
+
+        contactSectionObserver.observe(document.querySelector(".contact-content"))
+
+    }, [])
+
+    
     useEffect(() => {
         if (isSubmitted === true) {
             handleValidation()
@@ -100,7 +129,7 @@ const Contact = ({ sectionRef }: any) => {
     }, [nameInput, emailInput, messageInput])
 
     useEffect(() => {
-        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {            
+        if (nameInput.length > 1 && isEmailValid(emailInput) === true && messageInput !== "") {
             setInputStyle(["pass", "pass", "pass"])
         } else if (isSubmitted === true) {
             let finalStyling = warningMessage.map((x) => {
@@ -121,14 +150,14 @@ const Contact = ({ sectionRef }: any) => {
     return (
         <section className="main-section contact-section section" id="contact" ref={sectionRef}>
             <div className="section-border-container">
-                <h3 className="section-border-heading">
+                <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
                     CONTACT
                 </h3>
-                <div className="section-border"></div>
+                <div className={borderContainerClasses[1]}></div>
             </div>
             <section className="section-content-container">
-                <div className="section-content" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <p style={{ width: '50%' }}>Do not hesitate to contact me through the form here or by direct email on {" "}
+                <div className="section-content contact-content" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <p className={contactClasses[0]} style={{ width: '50%', opacity: 0 }}>Do not hesitate to contact me through the form here or by direct email on {" "}
                         <a style={{ fontSize: '1em', textUnderlineOffset: '5px', textDecorationColor: '#454545' }} href="mailto:sasa.palinkas6@gmail.com">sasa.palinkas6@gmail.com</a> regardless of the subject.
                     </p>
                     <form ref={form} onSubmit={(e) => {
@@ -137,19 +166,19 @@ const Contact = ({ sectionRef }: any) => {
                         }
                         sendEmail(e)
                     }} name="contact" id="contact-form">
-                        <label className="contact-label" htmlFor="contact-form">What's your name?
+                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.2s' }} htmlFor="contact-form">What's your name?
                             <input className={inputStyle[0]} onChange={(e) => handleChange(e, setNameInput)} required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
                             <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
                         </label>
-                        <label className="contact-label" htmlFor="contact-form">Where can i reach you?
+                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.4s' }} htmlFor="contact-form">Where can i reach you?
                             <input className={inputStyle[1]} pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
                             <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
                         </label>
-                        <label className="contact-label" htmlFor="contact-form">What's your message?
+                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.6s' }} htmlFor="contact-form">What's your message?
                             <textarea className={inputStyle[2]} onChange={(e) => handleChange(e, setMessageInput)} required placeholder="Hi Saša! Lets work!" name="message"></textarea>
                             <p className={warningMessage[2] === "" ? "warning-message-disabled" : warningMessage[2]}>You need to send me a message!</p>
                         </label>
-                        <button onClick={handleValidation} className="submit-button" type="submit">Send it
+                        <button onClick={handleValidation} className={`${contactClasses[1]} submit-button`} style={{ opacity: 0, animationDelay: '.8s' }} type="submit">Send it
                             <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: '15px' }} width={'25px'} height={'25px'} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
                                 <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
                             </svg>
