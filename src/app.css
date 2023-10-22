@@ -8,8 +8,22 @@
     scroll-behavior: smooth;
 }
 
+:root {
+    --color-bg: #121212;
+    --color-fg: #ededed;
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bg: #ededed;
+        --color-fg: #121212;
+        color-scheme: light;
+    }
+}
+
 body {
-    background-color: #171717;
+    background-color: var(--color-bg);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -158,7 +172,7 @@ form {
 }
 
 .submit-button {
-    background-color: #171717;
+    background-color: #121212;
     border-style: none;
     color: #B5B5B5;
     margin-top: 50px;

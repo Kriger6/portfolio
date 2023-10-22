@@ -76,7 +76,7 @@
     transition: transform 0.25s ease-out
 }
 
-.dark-mode {
+.theme-mode {
     transform-origin: bottom;
     transition-duration: .7s;
 }
