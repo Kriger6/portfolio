@@ -1,5 +1,5 @@
 h1 {
-    color: white;
+    color: var(--color-h1);
     font-size: 4.7rem;
     margin-top: 150px;
     font-weight: normal;

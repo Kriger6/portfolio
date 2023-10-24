@@ -13,7 +13,6 @@ const NavBar = ({linkRefs}: any) => {
 
   const handleTheme = () => {
     setTheme(theme === sun ? moon : sun)
-
   }
 
   

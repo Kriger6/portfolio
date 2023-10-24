@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import '../app.css'
 import About from './about'
 import Contact from './contact'
@@ -8,7 +8,22 @@ import NavBar from "./navBar"
 import Projects from './projects'
 
 
+type Theme = 'light' | 'dark';
+type ThemeContextType = {
+  themeMode: Theme;
+  toggleTheme: () => void;
+};
+
+export const ThemeContext = createContext<ThemeContextType>({
+  themeMode: "dark",
+  toggleTheme: () => {}
+})
+
+export const useThemeContext = () => useContext(ThemeContext)
+
+
 const App = () => {
+
 
   const introductionRef = useRef<HTMLElement | undefined>(undefined)
   const projectsRef = useRef<HTMLElement | undefined>(undefined)
@@ -34,7 +49,7 @@ const App = () => {
         if (scrollY >= sectionTop - 125) {
           current = section.current.getAttribute("id");
         }
-      } else if(scrollY >= sectionTop - 60) {
+      } else if (scrollY >= sectionTop - 60) {
         current = section.current.getAttribute("id");
 
       }
@@ -57,18 +72,33 @@ const App = () => {
     })
 
   }, [])
+  
+  const [themeMode, setTheme] = useState<Theme>(`${window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}`)
+  
+  const toggleTheme = () => {
+    setTheme((prevState) => prevState === "light" ? "dark" : "light")
+  }
+  
+    useEffect(() => {      
+      if (themeMode === "light") {
+        document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: light")
+      } else {
+        document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: dark")
 
-
+      }
+    }, [themeMode])
 
   return (
-    <div className='app-container' id='app-container'>
-      <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }}/>
-      <Introduction sectionRef={{introductionRef}} />
-      <Projects sectionRef={projectsRef} />
-      <About sectionRef={aboutRef} />
-      <Contact sectionRef={contactRef} />
-      <Footer />
-    </div>
+    <ThemeContext.Provider value={{themeMode, toggleTheme}}>
+      <div className='app-container' id='app-container'>
+        <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
+        <Introduction sectionRef={{ introductionRef }} />
+        <Projects sectionRef={projectsRef} />
+        <About sectionRef={aboutRef} />
+        <Contact sectionRef={contactRef} />
+        <Footer />
+      </div>
+    </ThemeContext.Provider>
   )
 }
 

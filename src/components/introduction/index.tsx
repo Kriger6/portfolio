@@ -33,14 +33,14 @@ const Introduction = ({ sectionRef }: any) => {
 
 
   useEffect(() => {
-    const myFunc = () => {
+    const isPageVisible = () => {
       if (!document.hidden) {
         setResetWidget(Math.random)
       }
     }
-    document.addEventListener('visibilitychange', myFunc);
+    document.addEventListener('visibilitychange', isPageVisible);
     return () => {
-      document.removeEventListener('visibilitychange', myFunc)
+      document.removeEventListener('visibilitychange', isPageVisible)
     }
   })
 
