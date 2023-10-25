@@ -10,24 +10,31 @@
 
 [style="color-scheme: dark"] {
     --color-h1: #ededed;
-    --link-color: #0a86da;
+    --nav-link-color: #8f8f8f;
     --link-white-color: #c1bfbd;
     --color-bg: #121212;
+    --paragraph: #b5b5b5;
+    --filter: brightness(2);
 }
 
 [style="color-scheme: light"] {
     --font-color: #c1bfbd;
-    --link-color: #0a86da;
+    --nav-link-color: #6a6a6a;
     --link-white-color: #c1bfbd;
     --color-bg: #ededed;
+    --paragraph: #6a6a6a;
+    --filter: brightness(.5);
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         --color-bg: #ededed;
         --color-fg: #121212;
-        --color-h1: #373737
+        --color-h1: #373737;
+        --nav-link-color: #6a6a6a;
+        --paragraph: #6a6a6a;
         color-scheme: light;
+        --filter: brightness(.5);
     }
 }
 
@@ -50,14 +57,14 @@ a {
     font-size: 2rem;
 }
 
-.menu-links a:hover,
-a:hover {
-    color: #cecece;
+.menu-links a,
+.introduction-link-to-projects a {
+    color: var(--nav-link-color);
 }
 
 p {
     font-size: larger;
-    color: #B5B5B5;
+    color: var(--paragraph);
 }
 
 header {

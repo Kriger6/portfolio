@@ -80,3 +80,7 @@
     transform-origin: bottom;
     transition-duration: .7s;
 }
+
+.theme-mode:hover {
+    filter: var(--filter)
+}

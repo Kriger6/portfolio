@@ -1,4 +1,11 @@
-const SvgComponent = (props: any) => (
+import { useThemeContext } from "../App"
+
+
+const SvgComponent = (props: any) => {
+    const {themeMode} = useThemeContext()
+
+    return (
+
     <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
@@ -49,7 +56,7 @@ const SvgComponent = (props: any) => (
                     strokeDashoffset: 0,
                     strokeLinejoin: "miter",
                     strokeMiterlimit: 4,
-                    fill: "#ededed",
+                    fill: themeMode === "dark" ? "#ededed" : "#171717",
                     fillRule: "nonzero",
                     opacity: 1,
                     whiteSpace: "pre",
@@ -62,5 +69,6 @@ const SvgComponent = (props: any) => (
             </text>
         </g>
     </svg>
-)
+    )
+}
 export default SvgComponent

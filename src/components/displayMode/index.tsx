@@ -5,7 +5,7 @@ const DisplayMode = ({ themeIcon, handleTheme }: any) => {
   const [rotationDegree, setRotationDegree] = useState<number | undefined>(0)
   const [iconOpacity, setIconOpacity] = useState<number | undefined>(100)
 
-  const {toggleTheme} = useThemeContext()
+  const { toggleTheme } = useThemeContext()
 
   return (
     <div style={{ height: "inherit", display: "flex", alignItems: "flex-end" }}>

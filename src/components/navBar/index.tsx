@@ -3,13 +3,19 @@ import './index.css'
 import DisplayMode from "../displayMode"
 import sun from '../../assets/sun.svg'
 import moon from '../../assets/moon.svg'
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
+import { useThemeContext } from "../App"
 
 
 const NavBar = ({linkRefs}: any) => {
+  const { themeMode } = useThemeContext()
 
-  const [theme, setTheme] = useState(sun)
+
+  const [theme, setTheme] = useState()
+
+  useEffect(() => {
+    setTheme(themeMode === "dark" ? sun : moon)
+  }, [])
 
   const handleTheme = () => {
     setTheme(theme === sun ? moon : sun)
