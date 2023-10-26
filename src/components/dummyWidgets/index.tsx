@@ -7,11 +7,14 @@ import { useEffect, useRef, useState } from 'react'
 import { intervals } from './timer'
 import DummyText from './dummyText'
 import DummyRectangle from './dummyRectangle'
+import { useThemeContext } from '../App'
 
 const DummyWidgets = () => {
 
+    const {themeMode} = useThemeContext()
+
     let grid = Array(100).fill(undefined).map(() => <div key={uuidv4()} style={{
-        width: "50px", height: "50px", border: "1px solid #292929", backgroundColor: "#171717"
+        width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#292929" : "#e9e9e9"}`,
     }}></div>)
 
     const [timer, setTimer] = useState<boolean[] | undefined>([false, false, false, false])
