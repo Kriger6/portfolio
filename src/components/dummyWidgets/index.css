@@ -1,7 +1,7 @@
 .widget-container {
-    mask: radial-gradient(circle, black, transparent);
+    mask: radial-gradient(circle, black, transparent 85%);
     ;
-    -webkit-mask: radial-gradient(circle, black, transparent);
+    -webkit-mask: radial-gradient(circle, black, transparent 85%);
     position: relative;
 }
 
@@ -15,6 +15,7 @@
     background-color: #2b2b2b;
     position: absolute;
     left: calc(50% - 100px);
+    top: 10%;
     border-radius: 5px;
 }
 

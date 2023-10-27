@@ -13,8 +13,8 @@ const DummyWidgets = () => {
 
     const {themeMode} = useThemeContext()
 
-    let grid = Array(100).fill(undefined).map(() => <div key={uuidv4()} style={{
-        width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#292929" : "#e9e9e9"}`,
+    let grid = Array(144).fill(undefined).map(() => <div key={uuidv4()} style={{
+        width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#292929" : "#dedede"}`,
     }}></div>)
 
     const [timer, setTimer] = useState<boolean[] | undefined>([false, false, false, false])
@@ -97,7 +97,7 @@ const DummyWidgets = () => {
 
 
     return (
-        <div className='widget-container' style={{ display: "flex", width: "500px", height: "500px", flexWrap: "wrap" }}>
+        <div className='widget-container' style={{ display: "flex", width: "600px", height: "600px", flexWrap: "wrap" }}>
             {grid}
             <div className='animation-dummy-base'>
                 <div className="base-dummy-content">
