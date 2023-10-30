@@ -26,7 +26,7 @@
 
 .project-card {
     transform: scale(0);
-    background-color: #303037;
+    background-color: var(--photo-background);
     animation-name: project-card;
     animation-fill-mode: forwards;
     animation-duration: 1s;

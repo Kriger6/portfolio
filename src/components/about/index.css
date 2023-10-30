@@ -27,7 +27,7 @@
     animation-duration: 1s;
     transform-origin: left;
     animation-timing-function: cubic-bezier(.4, 0, .2, 1);
-    background-color: #303037;
+    background-color: var(--photo-background);
     margin-left: 60px;
     height: 300px;
     width: 300px;

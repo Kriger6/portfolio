@@ -1,10 +1,10 @@
 import DummyText from "./dummyText"
+import './index.css'
 
 const DummySearchBar = () => {
     return (
         <div style={{position: 'absolute', width: '100%'}}> 
-            <div style={{
-                position: 'inherit', background: '#3e3e3e', width: '100%', height: '36px', borderRadius: '5px' }}>
+            <div className="dummy-search">
                 <div style={{
                     position: 'inherit', background: '#5c5c5c', width: '90px', height: '8px',
                     left: '20px', top: 'calc(50% - 4px)', borderRadius: '10px' }}></div>
@@ -21,4 +21,5 @@ const DummySearchBar = () => {
 }
 
 export default DummySearchBar
+
 

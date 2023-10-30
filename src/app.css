@@ -15,6 +15,8 @@
     --color-bg: #121212;
     --paragraph: #b5b5b5;
     --filter: brightness(2);
+    --photo-background: #1D1D1D;
+    --dummy-search-bar: #252525
 }
 
 [style="color-scheme: light"] {
@@ -24,6 +26,8 @@
     --color-bg: #ededed;
     --paragraph: #6a6a6a;
     --filter: brightness(.5);
+    --photo-background: #D3D3D3;
+    --dummy-search-bar: #e2e2e2;
 }
 
 @media (prefers-color-scheme: light) {
@@ -35,6 +39,8 @@
         --paragraph: #6a6a6a;
         color-scheme: light;
         --filter: brightness(.5);
+        --photo-background: #D3D3D3;
+        --dummy-search-bar: #e2e2e2
     }
 }
 
