@@ -11,10 +11,10 @@ import { useThemeContext } from '../App'
 
 const DummyWidgets = () => {
 
-    const {themeMode} = useThemeContext()
+    const { themeMode } = useThemeContext()
 
     let grid = Array(144).fill(undefined).map(() => <div key={uuidv4()} style={{
-        width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#292929" : "#dedede"}`,
+        width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#1F1F1F" : "#dedede"}`,
     }}></div>)
 
     const [timer, setTimer] = useState<boolean[] | undefined>([false, false, false, false])
@@ -40,8 +40,8 @@ const DummyWidgets = () => {
         'animation-dummy-item-out'
     ]
 
-    const firstSymbol = <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M142.9 96c-21.5 0-42.2 8.5-57.4 23.8L54.6 150.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L40.2 74.5C67.5 47.3 104.4 32 142.9 32C223 32 288 97 288 177.1c0 38.5-15.3 75.4-42.5 102.6L109.3 416H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9L200.2 234.5c15.2-15.2 23.8-35.9 23.8-57.4c0-44.8-36.3-81.1-81.1-81.1z" /></svg>
-    const secondSymbol = <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 64C0 46.3 14.3 32 32 32H352c12.4 0 23.7 7.2 29 18.4s3.6 24.5-4.4 34.1L100.3 416H352c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.4 0-23.7-7.2-29-18.4s-3.6-24.5 4.4-34.1L283.7 96H32C14.3 96 0 81.7 0 64z" /></svg>
+    const firstSymbol = <svg fill={themeMode === "dark" ? "#6A6A6A" : "#8F8F8F"} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M142.9 96c-21.5 0-42.2 8.5-57.4 23.8L54.6 150.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L40.2 74.5C67.5 47.3 104.4 32 142.9 32C223 32 288 97 288 177.1c0 38.5-15.3 75.4-42.5 102.6L109.3 416H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9L200.2 234.5c15.2-15.2 23.8-35.9 23.8-57.4c0-44.8-36.3-81.1-81.1-81.1z" /></svg>
+    const secondSymbol = <svg fill={themeMode === "dark" ? "#6A6A6A" : "#8F8F8F"} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 64C0 46.3 14.3 32 32 32H352c12.4 0 23.7 7.2 29 18.4s3.6 24.5-4.4 34.1L100.3 416H352c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-12.4 0-23.7-7.2-29-18.4s-3.6-24.5 4.4-34.1L283.7 96H32C14.3 96 0 81.7 0 64z" /></svg>
 
     useEffect(() => {
 
@@ -113,30 +113,32 @@ const DummyWidgets = () => {
                     </div>
                     <div style={{
                         display: 'flex', justifyContent: 'space-around', alignItems: 'center',
-                        background: '#3e3e3e', height: '45px', borderRadius: '5px',
+                        background: themeMode === "dark" ? "#252525" : "#E2E2E2", height: '45px', borderRadius: '5px',
                         marginTop: '20px'
                     }}>
-                        <DummyCircle w={28} h={28} />
-                        <DummyCircle w={28} h={28} />
-                        <DummyCircle w={28} h={28} />
-                        <DummyCircle w={28} h={28} />
+                        <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                        <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                        <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                        <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
                     </div>
                     <div className={`animation-dummy-rectangle ${classState[0]} `} style={{
                         transform: `translate(${movingDistance[0]}px)`, top: '35px',
                         left: '-65px'
                     }}>
-                        <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14} content={firstSymbol} />
+                        <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2E2E2E" : "#F0F0F0"}
+                            position="absolute" left={-14} top={-14} content={firstSymbol}
+                            bShadow={"0px 5px 70px black"} />
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
                                 height: '75%', justifyContent: 'space-evenly'
                             }}>
-                                <DummyText w={60} h={8} />
-                                <DummyText w={50} h={6} />
-                                <DummyText w={80} h={6} />
+                                <DummyText w={60} h={8} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                                <DummyText w={50} h={6} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                                <DummyText w={80} h={6} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
                             </div>
                             <div style={{ height: '75%' }}>
-                                <DummyText w={30} h={30} radiusOffset={0.5} />
+                                <DummyText w={30} h={30} radiusOffset={0.5} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
                             </div>
                         </div>
                     </div>
@@ -156,22 +158,24 @@ const DummyWidgets = () => {
                         transform: `translate(${movingDistance[3]}px)`, top: '300px',
                         left: '170px'
                     }}>
-                        <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14} content={secondSymbol} />
+                        <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14}
+                            bColor={themeMode === "dark" ? "#2E2E2E" : "#F0F0F0"}
+                            content={secondSymbol} bShadow={"-5px 5px 30px black"} />
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
                                 height: '75%', justifyContent: 'space-evenly'
                             }}>
-                                <DummyText w={60} h={8} />
-                                <DummyText w={80} h={6} />
-                                <DummyText w={70} h={6} />
+                                <DummyText w={60} h={8} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                                <DummyText w={80} h={6} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                                <DummyText w={70} h={6} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
                             </div>
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
                                 height: '75%', justifyContent: 'space-between'
                             }}>
-                                <DummyText w={35} h={18} radiusOffset={0.5} />
-                                <DummyText w={35} h={18} radiusOffset={0.5} />
+                                <DummyText w={35} h={18} radiusOffset={0.5} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
+                                <DummyText w={35} h={18} radiusOffset={0.5} bColor={themeMode === "dark" ? "#2C2C2C" : "#F0F0F0"} />
                             </div>
                         </div>
                     </div>

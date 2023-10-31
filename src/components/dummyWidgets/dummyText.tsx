@@ -7,16 +7,18 @@ export interface Measurements {
   top?: number,
   content?: any,
   radiusOffset?: number,
-  bColor?: string
+  bColor?: string,
+  bShadow?: string
 }
 
 
-const DummyText = ({ w, h, left, right, top, radiusOffset, content, bColor }: Measurements) => {
+const DummyText = ({ w, h, left, right, top, radiusOffset, content, bColor, position }: Measurements) => {
   return (
     <div style={{
       background: `${bColor ? bColor : '#5c5c5c'}`,
       borderRadius: `${radiusOffset ? 10 * radiusOffset : 10}px`, width: `${w}px`, height: `${h}px`,
-      marginTop: `${top}px`, marginLeft: `${left}px`, marginRight: `${right}px`
+      marginTop: `${top}px`, marginLeft: `${left}px`, marginRight: `${right}px`,
+      position: position
     }}>
       <div style={{display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
         {content}
