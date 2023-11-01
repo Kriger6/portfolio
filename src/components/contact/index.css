@@ -22,6 +22,11 @@ textarea {
     height: 180px;
 }
 
+.trademark {
+    font-size: 1rem;
+    color: var(--trademark);
+}
+
 .warning-message {
     font-size: smaller;
     font-weight: lighter;

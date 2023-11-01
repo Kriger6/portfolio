@@ -19,34 +19,46 @@
     --dummy-search-bar: #252525;
     --animation-dummy-rectangle: #222222;
     --dummy-base-box-shadow: -10px 20px 30px #171717;
+    --section-border: #1F1F1F;
+    --h3: #6A6A6A;
+    --social-network: #8F8F8F;
+    --trademark: #6A6A6A
 }
 
 [style="color-scheme: light"] {
     --font-color: #c1bfbd;
-    --nav-link-color: #6a6a6a;
-    --link-white-color: #c1bfbd;
-    --color-bg: #ededed;
-    --paragraph: #6a6a6a;
+    --nav-link-color: #6A6A6A;
+    --link-white-color: #C1BFBD;
+    --color-bg: #EDEDED;
+    --paragraph: #6A6A6A;
     --filter: brightness(.5);
     --photo-background: #D3D3D3;
-    --dummy-search-bar: #e2e2e2;
+    --dummy-search-bar: #E2E2E2;
     --animation-dummy-rectangle: #E2E2E2;
     --dummy-base-box-shadow: -10px 20px 30px lightgray;
+    --section-border: #DADADA;
+    --h3: #B5B5B5;
+    --social-network: #454545;
+    --trademark: #8F8F8F
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        --color-bg: #ededed;
+        --color-bg: #EDEDED;
         --color-fg: #121212;
         --color-h1: #373737;
-        --nav-link-color: #6a6a6a;
-        --paragraph: #6a6a6a;
+        --nav-link-color: #6A6A6A;
+        --paragraph: #6A6A6A;
         color-scheme: light;
         --filter: brightness(.5);
         --photo-background: #D3D3D3;
         --dummy-search-bar: #E2E2E2;
         --animation-dummy-rectangle: #E2E2E2;
         --dummy-base-box-shadow: -10px 20px 30px lightgray;
+        --section-border: #E3E3E3;
+        --h3: #B5B5B5;
+        --social-network: #454545;
+        --trademark: #8F8F8F
     }
 }
 
@@ -65,7 +77,7 @@ body {
 
 a {
     text-underline-offset: 11px;
-    color: #b5b5b5;
+    color: #B5B5B5;
     font-size: 2rem;
 }
 
@@ -104,7 +116,7 @@ h2 {
 }
 
 h3 {
-    color: #6A6A6A;
+    color: var(--h3);
     font-size: initial;
 }
 
@@ -130,7 +142,7 @@ h3 {
 
 .section-border {
     height: 1px;
-    background-color: #292929;
+    background-color: var(--section-border);
     width: 92%;
 }
 
@@ -158,11 +170,11 @@ h3 {
 .social-networks-container {
     display: flex;
     justify-content: space-between;
-    width: 160px;
+    width: 230px;
 }
 
-.trademark {
-    font-size: small;
+.social-networks-container a {
+    font-size: 1.7rem;
 }
 
 .tech-icons-container {
@@ -178,19 +190,19 @@ h3 {
 }
 
 .contact-label {
-    color: #B5B5B5;
+    color: var(--paragraph);
     font-size: 1.3rem;
     display: block
 }
 
 .contact-label input,
 textarea {
-    background-color: #171717;
+    background-color: inherit;
     display: block;
     width: 100%;
     font-size: 1.5rem;
     padding: 16px 12px 16px 12px;
-    color: #B5B5B5;
+    color: var(--paragraph);
     outline: none;
 }
 
@@ -200,9 +212,9 @@ form {
 }
 
 .submit-button {
-    background-color: #121212;
+    background-color: inherit;
     border-style: none;
-    color: #B5B5B5;
+    color: var(--paragraph);
     margin-top: 50px;
     display: flex;
     align-items: baseline;
@@ -220,9 +232,9 @@ form {
     scale: 1.5;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     transition-duration: 0.3s;
-
+    filter: var(--filter)
 }
 
 ::placeholder {
-    color: #454545
+    color: var(--h3)
 }

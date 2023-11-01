@@ -34,7 +34,7 @@
 
 .link-animation {
     font-size: 1.2rem;
-    color: #8f8f8f;
+    color: var(--social-network);
     position: relative;
     display: inline-block;
     text-decoration: none;

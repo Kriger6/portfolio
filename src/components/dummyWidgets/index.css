@@ -43,7 +43,7 @@
 }
 
 .animation-dummy-square {
-    background-color: #353535;
+    background-color: var(--animation-dummy-rectangle);
     border-radius: 5px;
     width: 140px;
     height: 140px;

@@ -127,7 +127,7 @@ const DummyWidgets = () => {
                     }}>
                         <DummyCircle w={28} h={28} bColor={themeMode === "dark" ? "#2E2E2E" : "#F0F0F0"}
                             position="absolute" left={-14} top={-14} content={firstSymbol}
-                            bShadow={"0px 5px 70px black"} />
+                            bShadow={"-6px 10px 103px -2px rgba(0,0,0,0.75)"} />
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
@@ -160,7 +160,7 @@ const DummyWidgets = () => {
                     }}>
                         <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14}
                             bColor={themeMode === "dark" ? "#2E2E2E" : "#F0F0F0"}
-                            content={secondSymbol} bShadow={"-5px 5px 30px black"} />
+                            content={secondSymbol}  />
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '100%' }}>
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', flexDirection: 'column',
