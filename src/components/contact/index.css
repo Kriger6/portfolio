@@ -50,6 +50,10 @@ textarea {
     transform: translate(0, 5px);
 }
 
+.contact-paragraph a {
+    color: var(--paragraph);
+}
+
 .contact-label {
     animation-name: contact-label;
     animation-duration: 1s;

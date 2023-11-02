@@ -77,17 +77,17 @@ const Projects = ({ sectionRef }: any) => {
                 </div>
                 <div className="section-content example-container">
                     <figure ref={firstProjectPhotoRef}>
-                        <div className={classes[3]} style={{ height: "300px", width: "370px" }}>
+                        <div className={classes[3]} style={{width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[0]} />
                         </div>
                     </figure>
                     <figure ref={secondProjectPhotoRef}>
-                        <div className={classes[3]} style={{ animationDelay: '.3s', height: "300px", width: "370px" }}>
+                        <div className={classes[3]} style={{ animationDelay: '.3s', width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[1]} />
                         </div>
                     </figure>
                     <figure ref={thirdProjectPhotoRef}>
-                        <div className={classes[3]} style={{ animationDelay: '.5s', height: "300px", width: "370px" }}>
+                        <div className={classes[3]} style={{ animationDelay: '.5s', width: "370px" }}>
                             <ProjectExample load={shouldLoadPhoto[2]} />
                         </div>
                     </figure>

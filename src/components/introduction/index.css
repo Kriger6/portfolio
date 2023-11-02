@@ -47,7 +47,7 @@ a svg {
 a:hover svg {
     transform: translateX(2px) rotate(-45deg) translateY(3px);
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-
+    filter: var(--filter)
 }
 
 .header-letter {
