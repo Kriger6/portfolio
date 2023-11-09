@@ -6,12 +6,17 @@ h1 {
     max-width: 700px;
     line-height: 1;
     overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .introduction-section {
     display: flex;
     height: 880px;
-    justify-content: space-between;
+    position: relative;
+}
+
+.introduction-landing {
+    z-index: 3;
 }
 
 .introduction-landing p {
@@ -28,11 +33,13 @@ h1 {
 }
 
 .widgets-container {
-    margin-top: 180px;
+    top: 150px;
     animation-name: widgets-container;
     opacity: 0;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    position: absolute;
+    right: 0;
 }
 
 .hidden-widgets-container {
@@ -129,6 +136,14 @@ a:hover svg {
         fill-opacity: 100%;
     }
 }
+
+@media only screen and (max-width: 1280px) {
+    .widgets-container {
+        top: 290px;
+    }
+}
+
+
 
 @media only screen and (max-width: 1024px) {
 

@@ -250,12 +250,28 @@ form {
     h1 {
         width: 748px;
     }
+
+    h1 span:nth-child(13) {
+        width: 270px;
+    }
+
+    h1 span:nth-child(20) {
+        width: 440px;
+    }
+
+    .introduction-landing {
+        width: 700px;
+    }
 }
 
 @media only screen and (max-width: 1280px) {
     .app-container {
         width: 1024px;
         margin: auto;
+    }
+
+    .introduction-landing {
+        width: 600px;
     }
 
 

@@ -14,7 +14,7 @@ const Introduction = ({ sectionRef }: any) => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setHeaderDisplay("block")
+          setHeaderDisplay("inline-flex")
           setIntroductionVisibility("visible")
           setClasses(["introduction-paragraph-animation", "introduction-link-to-projects", "", "widgets-container"  ])
 
