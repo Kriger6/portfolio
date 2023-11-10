@@ -255,7 +255,7 @@ form {
         width: 270px;
     }
 
-    h1 span:nth-child(20) {
+    h1 span:nth-child(21) {
         width: 440px;
     }
 
@@ -283,6 +283,15 @@ form {
         margin: auto;
     }
 
+    h1 span:nth-child(13) {
+        width: initial;
+    }
+
+    h1 span:nth-child(21) {
+        width: 140px;
+    }
+
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -290,5 +299,11 @@ form {
         padding: 0 15px 0 15px;
     }
 
+    .introduction-section {
+        left: 50%;
+        transform: translate(-50%, 0px);
+        max-width: 640px;
+        padding: 0 15px 0 15px;
+    }
 
 }

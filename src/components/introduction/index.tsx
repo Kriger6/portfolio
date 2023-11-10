@@ -55,6 +55,30 @@ const Introduction = ({ sectionRef }: any) => {
   const headerString = "I design and develop applications."
   const headerLetters = headerString.split('')
 
+  // const newheader = headerString.split(" ")
+
+  // const newnew = newheader.map((word, index) => {
+  //   return (
+  //     <span>
+  //       {
+  //         headerLetters.map((letter, index) => {
+  //           return (
+  //             <span key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
+  //               <span className='header-letter' style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>
+  //                 {letter}
+  //               </span>
+  //             </span>
+  //           )
+  //         })
+  //       }
+  //     </span>
+  //   )
+  // })
+
+  // console.log(newnew);
+  
+  
+
 
   return (
     <section className={`introduction-section main-section section`} id='introduction' ref={sectionRef.introductionRef}>
