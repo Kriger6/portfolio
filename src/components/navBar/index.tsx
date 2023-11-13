@@ -5,6 +5,7 @@ import sun from '../../assets/sun.svg'
 import moon from '../../assets/moon.svg'
 import { useEffect, useState } from "react"
 import { useThemeContext } from "../App"
+import BurgerMenu from "../burger"
 
 
 const NavBar = ({linkRefs}: any) => {
@@ -34,6 +35,7 @@ const NavBar = ({linkRefs}: any) => {
           <DisplayMode themeIcon={theme} handleTheme={handleTheme}/>
         </div>
       </div>
+      <BurgerMenu theme={theme} handleTheme={handleTheme} linkRefs={linkRefs} />
     </header>
   )
 }

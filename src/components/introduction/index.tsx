@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import DummyWidgets from '../dummyWidgets'
 import './index.css'
 
@@ -16,7 +16,7 @@ const Introduction = ({ sectionRef }: any) => {
         if (entry.isIntersecting) {
           setHeaderDisplay("inline-flex")
           setIntroductionVisibility("visible")
-          setClasses(["introduction-paragraph-animation", "introduction-link-to-projects", "", "widgets-container"  ])
+          setClasses(["introduction-paragraph-animation", "introduction-link-to-projects", "", "widgets-container"])
 
           setTimeout(() => {
             setWidgetDisplay("block")
@@ -53,31 +53,34 @@ const Introduction = ({ sectionRef }: any) => {
   } as React.CSSProperties;
 
   const headerString = "I design and develop applications."
-  const headerLetters = headerString.split('')
+  const headerWords = headerString.split(' ')
 
-  // const newheader = headerString.split(" ")
+  const letterElements = headerWords.map((x) => {
+    return [x]
+  })
 
-  // const newnew = newheader.map((word, index) => {
-  //   return (
-  //     <span>
-  //       {
-  //         headerLetters.map((letter, index) => {
-  //           return (
-  //             <span key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
-  //               <span className='header-letter' style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>
-  //                 {letter}
-  //               </span>
-  //             </span>
-  //           )
-  //         })
-  //       }
-  //     </span>
-  //   )
-  // })
+  const constructHeader = () => {
+    let j = 0;
+    const finalArray = letterElements.map((y, index) => {
+      let letters = y[0].split("")
+      return (
+        <span className='words' key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
+          {
+            letters.map((el) => {
+              j++
+              return (
+                <span key={j} className='header-letter' style={{ animationDelay: `${j * 15 + 1000}ms` }}>
+                  {el}
+                </span>)
+            })
+          }
+        </span>
+      )
+    })
+    return finalArray
+  }
 
-  // console.log(newnew);
-  
-  
+
 
 
   return (
@@ -85,15 +88,7 @@ const Introduction = ({ sectionRef }: any) => {
       <div className='introduction-landing' style={visibilityStyle}>
         <h1 style={{ display: headerDisplay }}>
           {
-            headerLetters.map((letter, index) => {
-              return (
-                <span key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
-                  <span className='header-letter' style={{ animationDelay: `${index * 15 + 1000}ms`, marginLeft: `${letter === " " ? '20px' : ''}` }}>
-                    {letter}
-                  </span>
-                </span>
-              )
-            })
+            constructHeader()
           }
         </h1>
         <p className={classes[0]}>I'm a self-taught frontend developer with passion for building responsive websites.</p>

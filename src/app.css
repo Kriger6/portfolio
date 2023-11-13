@@ -246,22 +246,6 @@ form {
         width: 1200px;
         margin: auto;
     }
-
-    h1 {
-        width: 748px;
-    }
-
-    h1 span:nth-child(13) {
-        width: 270px;
-    }
-
-    h1 span:nth-child(21) {
-        width: 440px;
-    }
-
-    .introduction-landing {
-        width: 700px;
-    }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -270,11 +254,6 @@ form {
         margin: auto;
     }
 
-    .introduction-landing {
-        width: 600px;
-    }
-
-
 }
 
 @media only screen and (max-width: 1024px) {
@@ -282,15 +261,6 @@ form {
         width: 768px;
         margin: auto;
     }
-
-    h1 span:nth-child(13) {
-        width: initial;
-    }
-
-    h1 span:nth-child(21) {
-        width: 140px;
-    }
-
 
 }
 
@@ -305,5 +275,7 @@ form {
         max-width: 640px;
         padding: 0 15px 0 15px;
     }
+
+    
 
 }
