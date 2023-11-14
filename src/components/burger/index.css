@@ -1,3 +1,25 @@
 .burger-menu {
-    display: none
+    display: none;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--burger-menu);
+    right: -15px;
+    width: 80%;
+    padding: 100px 0 120px 50px;
+    flex-direction: column;
+    top: 0;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .burger-menu {
+        display: inline-flex;
+    }
+
+    .display-mode {
+        height: 30px;
+    }
+
 }

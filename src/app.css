@@ -22,7 +22,8 @@
     --section-border: #1F1F1F;
     --h3: #6A6A6A;
     --social-network: #8F8F8F;
-    --trademark: #6A6A6A
+    --trademark: #6A6A6A;
+    --burger-menu: #292929;
 }
 
 [style="color-scheme: light"] {
@@ -36,10 +37,12 @@
     --dummy-search-bar: #E2E2E2;
     --animation-dummy-rectangle: #E2E2E2;
     --dummy-base-box-shadow: -10px 20px 30px lightgray;
-    --section-border: #DADADA;
+    --section-border: #E3E3E3;
     --h3: #B5B5B5;
     --social-network: #454545;
-    --trademark: #8F8F8F
+    --trademark: #8F8F8F;
+    --color-h1: #373737;
+    --burger-menu: #DADADA;
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,7 +61,8 @@
         --section-border: #E3E3E3;
         --h3: #B5B5B5;
         --social-network: #454545;
-        --trademark: #8F8F8F
+        --trademark: #8F8F8F;
+        --burger-menu: #DADADA;
     }
 }
 
@@ -276,6 +280,10 @@ form {
         padding: 0 15px 0 15px;
     }
 
-    
+    .menu-links {
+        display: none;
+    }
+
+
 
 }

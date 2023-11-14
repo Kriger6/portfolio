@@ -85,3 +85,10 @@
     filter: var(--filter)
 }
 
+@media only screen and (max-width: 768px) {
+
+    .menu-links {
+        display: none;
+    }
+
+}
