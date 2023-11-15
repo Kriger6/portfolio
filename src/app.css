@@ -15,6 +15,7 @@
     --color-bg: #121212;
     --paragraph: #b5b5b5;
     --filter: brightness(2);
+    --burger-filter: brightness(.5);
     --photo-background: #1D1D1D;
     --dummy-search-bar: #252525;
     --animation-dummy-rectangle: #222222;
@@ -33,6 +34,7 @@
     --color-bg: #EDEDED;
     --paragraph: #6A6A6A;
     --filter: brightness(.5);
+    --burger-filter: brightness(2);
     --photo-background: #D3D3D3;
     --dummy-search-bar: #E2E2E2;
     --animation-dummy-rectangle: #E2E2E2;
@@ -54,6 +56,7 @@
         --paragraph: #6A6A6A;
         color-scheme: light;
         --filter: brightness(.5);
+        --burger-filter: brightness(2);
         --photo-background: #D3D3D3;
         --dummy-search-bar: #E2E2E2;
         --animation-dummy-rectangle: #E2E2E2;

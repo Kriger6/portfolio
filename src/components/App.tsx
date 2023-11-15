@@ -88,6 +88,13 @@ const App = () => {
       }
     }, [themeMode])
 
+  // const logMe = () => {
+  //   console.log("Me");
+    
+  // }
+
+  // window.addEventListener("click", logMe)
+
   return (
     <ThemeContext.Provider value={{themeMode, toggleTheme}}>
       <div className='app-container' id='app-container'>

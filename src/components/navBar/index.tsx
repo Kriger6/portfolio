@@ -6,13 +6,17 @@ import moon from '../../assets/moon.svg'
 import { useEffect, useState } from "react"
 import { useThemeContext } from "../App"
 import BurgerMenu from "../burger"
+import BurgerIcon from "../burgerIcon"
 
 
-const NavBar = ({linkRefs}: any) => {
+const NavBar = ({ linkRefs }: any) => {
   const { themeMode } = useThemeContext()
 
 
   const [theme, setTheme] = useState()
+  const [menuToggle, setMenuToggle] = useState<boolean>(false)
+
+
 
   useEffect(() => {
     setTheme(themeMode === "dark" ? sun : moon)
@@ -22,7 +26,7 @@ const NavBar = ({linkRefs}: any) => {
     setTheme(theme === sun ? moon : sun)
   }
 
-  
+
   return (
     <header className="navbar"  >
       <Logo />
@@ -32,10 +36,12 @@ const NavBar = ({linkRefs}: any) => {
         <a className="link-animation about" href="#about" ref={linkRefs.aboutLinkRef}>About</a>
         <a className="link-animation contact" href="#contact" ref={linkRefs.contactLinkRef}>Contact</a>
         <div className="display-mode">
-          <DisplayMode themeIcon={theme} handleTheme={handleTheme}/>
+          <DisplayMode themeIcon={theme} handleTheme={handleTheme} />
         </div>
       </div>
-      <BurgerMenu theme={theme} handleTheme={handleTheme} linkRefs={linkRefs} />
+      <BurgerIcon theme={themeMode} menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
+      <BurgerMenu theme={theme} handleTheme={handleTheme} linkRefs={linkRefs} menuToggle={menuToggle} />
+
     </header>
   )
 }
