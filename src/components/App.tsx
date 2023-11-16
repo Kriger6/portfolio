@@ -16,7 +16,7 @@ type ThemeContextType = {
 
 export const ThemeContext = createContext<ThemeContextType>({
   themeMode: "dark",
-  toggleTheme: () => {}
+  toggleTheme: () => { }
 })
 
 export const useThemeContext = () => useContext(ThemeContext)
@@ -72,31 +72,25 @@ const App = () => {
     })
 
   }, [])
-  
+
   const [themeMode, setTheme] = useState<Theme>(`${window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}`)
-  
+
   const toggleTheme = () => {
     setTheme((prevState) => prevState === "light" ? "dark" : "light")
   }
-  
-    useEffect(() => {      
-      if (themeMode === "light") {
-        document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: light")
-      } else {
-        document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: dark")
 
-      }
-    }, [themeMode])
+  useEffect(() => {
+    if (themeMode === "light") {
+      document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: light")
+    } else {
+      document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: dark")
 
-  // const logMe = () => {
-  //   console.log("Me");
-    
-  // }
+    }
+  }, [themeMode])
 
-  // window.addEventListener("click", logMe)
 
   return (
-    <ThemeContext.Provider value={{themeMode, toggleTheme}}>
+    <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
       <div className='app-container' id='app-container'>
         <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
         <Introduction sectionRef={{ introductionRef }} />

@@ -27,6 +27,8 @@ const NavBar = ({ linkRefs }: any) => {
   }
 
 
+
+
   return (
     <header className="navbar"  >
       <Logo />

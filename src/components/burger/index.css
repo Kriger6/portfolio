@@ -12,8 +12,22 @@
     align-items: flex-start;
 }
 
+body:has(.menu-visible) ~ body {
+    overflow: none;
+}
+
 .menu-visible {
     display: flex;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+    .menu-visible {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {

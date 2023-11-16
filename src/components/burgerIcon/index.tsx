@@ -1,13 +1,27 @@
+import { useEffect } from "react"
 import "./index.css"
 
-const BurgerIcon = ({theme, menuToggle, setMenuToggle}: any) => {
-  
+const BurgerIcon = ({ theme, menuToggle, setMenuToggle }: any) => {
+  useEffect(() => {
+    window.addEventListener("click", removeScroll)
+
+    return () => window.removeEventListener("click", removeScroll)
+  }, [menuToggle])
+
+  const removeScroll = (e: any) => {
+    if (menuToggle === true) {
+      console.log(document.getElementsByTagName("body")[0].classList.add("hidden"));
+    } else {
+      console.log(document.getElementsByTagName("body")[0].classList.remove("hidden"));
+    }
+
+  }
 
   return (
     <div className="burger-icon" onClick={() => setMenuToggle(!menuToggle)}>
-          <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-              <path stroke={theme === "dark" ? "#ededed" : "#373737"} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h14M1 6h14M1 11h7" />
-          </svg>
+      <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+        <path stroke={theme === "dark" ? "#ededed" : "#373737"} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h14M1 6h14M1 11h7" />
+      </svg>
     </div>
   )
 }
