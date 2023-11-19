@@ -30,7 +30,7 @@ const NavBar = ({ linkRefs }: any) => {
 
 
   return (
-    <header className="navbar"  >
+    <header className="navbar" >
       <Logo />
       <div className="menu-links">
         <a className="link-animation introduction" href="#app-container" ref={linkRefs.introductionLinkRef}>Introduction</a>

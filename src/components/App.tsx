@@ -88,6 +88,7 @@ const App = () => {
     }
   }, [themeMode])
 
+  
 
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>

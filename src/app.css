@@ -8,6 +8,10 @@
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 [style="color-scheme: dark"] {
     --color-h1: #ededed;
     --nav-link-color: #8f8f8f;

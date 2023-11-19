@@ -3,18 +3,22 @@ import "./index.css"
 
 const BurgerIcon = ({ theme, menuToggle, setMenuToggle }: any) => {
   useEffect(() => {
-    window.addEventListener("click", removeScroll)
-
-    return () => window.removeEventListener("click", removeScroll)
-  }, [menuToggle])
-
-  const removeScroll = (e: any) => {
     if (menuToggle === true) {
-      console.log(document.getElementsByTagName("body")[0].classList.add("hidden"));
+      document.getElementsByTagName("body")[0].classList.add("hidden");
+      document.addEventListener("click", closeMenuOnOutsideClick)
     } else {
-      console.log(document.getElementsByTagName("body")[0].classList.remove("hidden"));
+      document.getElementsByTagName("body")[0].classList.remove("hidden");
     }
 
+    return () => document.removeEventListener("click", closeMenuOnOutsideClick)
+
+  }, [menuToggle])
+  
+
+  const closeMenuOnOutsideClick = (e: PointerEvent) => {
+    if (e.clientX < window.innerWidth - (window.innerWidth * 0.8 - 15)) {
+      setMenuToggle(false)
+    }    
   }
 
   return (

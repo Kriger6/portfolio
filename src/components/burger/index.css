@@ -1,7 +1,7 @@
 .burger-menu {
     display: none;
     height: 100vh;
-    position: absolute;
+    position: fixed;   
     background-color: var(--burger-menu);
     right: -15px;
     width: 80%;
@@ -10,10 +10,6 @@
     top: 0;
     justify-content: space-around;
     align-items: flex-start;
-}
-
-body:has(.menu-visible) ~ body {
-    overflow: none;
 }
 
 .menu-visible {
