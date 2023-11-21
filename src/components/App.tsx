@@ -88,16 +88,16 @@ const App = () => {
     }
   }, [themeMode])
 
-  
+
 
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
       <div className='app-container' id='app-container'>
         <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
-        <Introduction sectionRef={{ introductionRef }} />
-        <Projects sectionRef={projectsRef} />
-        <About sectionRef={aboutRef} />
-        <Contact sectionRef={contactRef} />
+        <Introduction ref={introductionRef} />
+        <Projects ref={projectsRef} />
+        <About ref={aboutRef} />
+        <Contact ref={contactRef} />
         <Footer />
       </div>
     </ThemeContext.Provider>

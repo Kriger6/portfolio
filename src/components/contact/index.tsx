@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, forwardRef } from 'react'
 import './index.css'
 import emailjs from '@emailjs/browser'
 import * as React from 'react'
 import { useEffect } from 'react'
 
-const Contact = ({ sectionRef }: any) => {
+const Contact = forwardRef<HTMLElement>(({}, ref) => {
 
     const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
     const [contactClasses, setContactClasses] = useState<string[]>(["", ""])
@@ -148,7 +148,7 @@ const Contact = ({ sectionRef }: any) => {
 
 
     return (
-        <section className="main-section contact-section section" id="contact" ref={sectionRef}>
+        <section className="main-section contact-section section" id="contact" ref={ref}>
             <div className="section-border-container">
                 <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
                     CONTACT
@@ -188,7 +188,7 @@ const Contact = ({ sectionRef }: any) => {
             </section>
         </section>
     )
-}
+})
 
 export default Contact
 

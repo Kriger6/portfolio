@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import DummyWidgets from '../dummyWidgets'
 import './index.css'
 
-const Introduction = ({ sectionRef }: any) => {
+const Introduction = forwardRef<HTMLElement>(({}, ref) => {
 
   const [resetWidget, setResetWidget] = useState<number | undefined>(0)
   const [widgetDisplay, setWidgetDisplay] = useState<string | undefined>("none")
@@ -10,7 +10,7 @@ const Introduction = ({ sectionRef }: any) => {
   const [introductionVisibility, setIntroductionVisibility] = useState<string | undefined>("hidden")
   const [classes, setClasses] = useState<string[] | undefined>(["", "", "hidden-widgets-container", ""])
 
-  useEffect(() => {
+  useEffect(() => {    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -84,7 +84,7 @@ const Introduction = ({ sectionRef }: any) => {
 
 
   return (
-    <section className={`introduction-section main-section section`} id='introduction' ref={sectionRef.introductionRef}>
+    <section className={`introduction-section main-section section`} id='introduction' ref={ref}>
       <div className='introduction-landing' style={visibilityStyle}>
         <h1 style={{ display: headerDisplay }}>
           {
@@ -105,6 +105,6 @@ const Introduction = ({ sectionRef }: any) => {
       </div>
     </section>
   )
-}
+})
 
 export default Introduction

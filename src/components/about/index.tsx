@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import image from '../../assets/portfolio_selfie.png'
 import './index.css'
 import { useThemeContext } from '../App'
 
 
-const About = ({ sectionRef }: any) => {
+
+const About = forwardRef<HTMLElement>(({}, ref) => {
 
     const {themeMode} = useThemeContext()
 
@@ -64,7 +65,7 @@ const About = ({ sectionRef }: any) => {
     }, [])
 
     return (
-        <section className="main-section about-section section" id="about" ref={sectionRef}>
+        <section className="main-section about-section section" id="about" ref={ref}>
             <div className="section-border-container">
                 <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
                     ABOUT
@@ -118,6 +119,6 @@ const About = ({ sectionRef }: any) => {
             </section>
         </section>
     )
-}
+})
 
 export default About

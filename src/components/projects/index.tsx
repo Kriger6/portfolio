@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react"
+import { forwardRef, useEffect, useRef, useState } from "react"
 import ProjectExample from "./projectExamples"
 import './index.css'
 
-const Projects = ({ sectionRef }: any) => {
+const Projects = forwardRef<HTMLElement>(({}, ref) => {
 
     const [classes, setClasses] = useState<string[] | undefined>(["", "", "", ""])
     const [shouldLoadPhoto, setShouldLoadPhoto] = useState<boolean[]>([false, false, false])
@@ -64,7 +64,7 @@ const Projects = ({ sectionRef }: any) => {
 
 
     return (
-        <section className="main-section projects-section section" id="projects" ref={sectionRef}>
+        <section className="main-section projects-section section" id="projects" ref={ref}>
             <div className="section-border-container">
                 <h3 className={classes[0]} style={{ opacity: 0 }}>
                     PROJECTS
@@ -96,6 +96,6 @@ const Projects = ({ sectionRef }: any) => {
 
         </section>
     )
-}
+})
 
 export default Projects
