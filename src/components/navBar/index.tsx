@@ -4,12 +4,19 @@ import sun from '../../assets/sun.svg'
 import moon from '../../assets/moon.svg'
 import { useEffect, useState } from "react"
 import { useThemeContext } from "../App"
-import BurgerMenu from "../burger"
 import BurgerIcon from "../burgerIcon"
 import NavLinks from "./navLinks"
 
+export interface Refs {
+  linkRefs: {
+    introductionLinkRef: React.MutableRefObject<HTMLAnchorElement>
+    projectsLinkRef: React.MutableRefObject<HTMLAnchorElement>
+    aboutLinkRef: React.MutableRefObject<HTMLAnchorElement>
+    contactLinkRef: React.MutableRefObject<HTMLAnchorElement>
+  }
+}
 
-const NavBar = ({ linkRefs }: any) => {
+const NavBar = ({linkRefs}: Refs) => {
   const { themeMode } = useThemeContext()
 
 

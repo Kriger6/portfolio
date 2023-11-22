@@ -25,16 +25,16 @@ export const useThemeContext = () => useContext(ThemeContext)
 const App = () => {
 
 
-  const introductionRef = useRef<HTMLElement | undefined>(undefined)
-  const projectsRef = useRef<HTMLElement | undefined>(undefined)
-  const aboutRef = useRef<HTMLElement | undefined>(undefined)
-  const contactRef = useRef<HTMLElement | undefined>(undefined)
+  const introductionRef = useRef<HTMLElement>(null)
+  const projectsRef = useRef<HTMLElement>(null)
+  const aboutRef = useRef<HTMLElement>(null)
+  const contactRef = useRef<HTMLElement>(null)
 
 
-  const introductionLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
-  const projectsLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
-  const aboutLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
-  const contactLinkRef = useRef<HTMLAnchorElement | undefined>(undefined)
+  const introductionLinkRef = useRef<HTMLAnchorElement>(null)
+  const projectsLinkRef = useRef<HTMLAnchorElement>(null)
+  const aboutLinkRef = useRef<HTMLAnchorElement>(null)
+  const contactLinkRef = useRef<HTMLAnchorElement>(null)
 
 
   const sections = [introductionRef, projectsRef, aboutRef, contactRef]
@@ -89,11 +89,10 @@ const App = () => {
   }, [themeMode])
 
 
-
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
       <div className='app-container' id='app-container'>
-        <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
+        <NavBar linkRefs={{introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef}} />
         <Introduction ref={introductionRef} />
         <Projects ref={projectsRef} />
         <About ref={aboutRef} />
