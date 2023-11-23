@@ -1,7 +1,13 @@
 import { useEffect } from "react"
 import "./index.css"
 
-const BurgerIcon = ({ theme, menuToggle, setMenuToggle }: any) => {
+interface BurgerProps {
+  theme: string;
+  menuToggle: boolean;
+  setMenuToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const BurgerIcon = ({ theme, menuToggle, setMenuToggle }: BurgerProps) => {
   useEffect(() => {
     if (menuToggle === true) {
       document.getElementsByTagName("body")[0].classList.add("hidden");

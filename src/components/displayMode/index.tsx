@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { useThemeContext } from '../App'
-const DisplayMode = ({ themeIcon, handleTheme }: any) => {
+
+interface DisplayModeProps {
+  themeIcon: string;
+  handleTheme: () => void;
+}
+
+const DisplayMode = ({ themeIcon, handleTheme }: DisplayModeProps) => {
 
   const [rotationDegree, setRotationDegree] = useState<number | undefined>(0)
   const [iconOpacity, setIconOpacity] = useState<number | undefined>(100)

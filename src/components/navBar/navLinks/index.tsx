@@ -2,7 +2,20 @@ import { useEffect } from "react"
 import DisplayMode from "../../displayMode"
 import './index.css'
 
-const NavLinks = ({ themeIcon, handleTheme, menuToggle, setMenuToggle, linkRefs }: any) => {
+interface NavLinkProps {
+    themeIcon: string;
+    handleTheme: () => void;
+    menuToggle: boolean;
+    setMenuToggle: React.Dispatch<React.SetStateAction<boolean>>;
+    linkRefs: {
+        introductionLinkRef: React.MutableRefObject<HTMLAnchorElement>
+        projectsLinkRef: React.MutableRefObject<HTMLAnchorElement>
+        aboutLinkRef: React.MutableRefObject<HTMLAnchorElement>
+        contactLinkRef: React.MutableRefObject<HTMLAnchorElement>
+    }
+}
+
+const NavLinks = ({ themeIcon, handleTheme, menuToggle, setMenuToggle, linkRefs }: NavLinkProps) => {
     useEffect(() => {
         window.addEventListener("resize", checkSize)
 

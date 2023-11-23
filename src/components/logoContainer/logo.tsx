@@ -1,8 +1,9 @@
 import { useThemeContext } from "../App"
 
 
-const SvgComponent = (props: any) => {
+const SvgComponent = () => {
     const {themeMode} = useThemeContext()
+    
 
     return (
 
@@ -12,7 +13,7 @@ const SvgComponent = (props: any) => {
         width={70}
         height={70}
         viewBox="0 0 500 500"
-        {...props}
+        
     >
         <g id="P1xHUkT5I_9I9muh4csZr" transform="translate(568.426 544.683)">
             <text

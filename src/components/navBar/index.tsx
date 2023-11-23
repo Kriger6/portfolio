@@ -20,7 +20,7 @@ const NavBar = ({linkRefs}: Refs) => {
   const { themeMode } = useThemeContext()
 
 
-  const [theme, setTheme] = useState()
+  const [theme, setTheme] = useState<string>(null)
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
 
 
