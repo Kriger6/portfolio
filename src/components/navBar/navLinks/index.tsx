@@ -3,6 +3,8 @@ import DisplayMode from "../../displayMode"
 import './index.css'
 
 interface NavLinkProps {
+    classes: string;
+    setClasses: React.Dispatch<React.SetStateAction<string>>;
     themeIcon: string;
     handleTheme: () => void;
     menuToggle: boolean;
@@ -15,26 +17,40 @@ interface NavLinkProps {
     }
 }
 
-const NavLinks = ({ themeIcon, handleTheme, menuToggle, setMenuToggle, linkRefs }: NavLinkProps) => {
+const NavLinks = ({ classes, setClasses, themeIcon, handleTheme, menuToggle, setMenuToggle, linkRefs }: NavLinkProps) => {
     useEffect(() => {
         window.addEventListener("resize", checkSize)
 
         return () => window.removeEventListener("resize", checkSize)
     })
 
-    const checkSize = () => {        
+    const checkSize = () => {
         if (window.innerWidth > 768 && menuToggle === true) {
             setMenuToggle(false)
         }
     }
 
+    useEffect(() => {
+        if (menuToggle === true) {
+            setClasses("burger-menu burger-open menu-visible")
+        } else if(menuToggle === false) {
+            setClasses("burger-menu burger-close")
+            setTimeout(() => {
+                setClasses("menu-links")
+            }, 500)
+        }
+
+    }, [menuToggle])
+
+  
+
     return (
-        <div className={`${menuToggle === true ? "burger-menu menu-visible" : "menu-links"}`}>
-            <a className="link-animation introduction" href="#app-container" ref={linkRefs.introductionLinkRef}>Introduction</a>
-            <a className="link-animation projects" href="#projects" ref={linkRefs.projectsLinkRef}>Projects</a>
-            <a className="link-animation about" href="#about" ref={linkRefs.aboutLinkRef}>About</a>
-            <a className="link-animation contact" href="#contact" ref={linkRefs.contactLinkRef}>Contact</a>
-            <div className="display-mode">
+        <div className={classes}>
+            <a className="link-animation nav-link introduction" href="#app-container" ref={linkRefs.introductionLinkRef}>Introduction</a>
+            <a className="link-animation nav-link projects" href="#projects" ref={linkRefs.projectsLinkRef}>Projects</a>
+            <a className="link-animation nav-link about" href="#about" ref={linkRefs.aboutLinkRef}>About</a>
+            <a className="link-animation nav-link contact" href="#contact" ref={linkRefs.contactLinkRef}>Contact</a>
+            <div className="display-mode nav-link">
                 <DisplayMode themeIcon={themeIcon} handleTheme={handleTheme} />
             </div>
         </div>

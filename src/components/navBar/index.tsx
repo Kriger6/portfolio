@@ -22,7 +22,7 @@ const NavBar = ({linkRefs}: Refs) => {
 
   const [theme, setTheme] = useState<string>(null)
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
-
+  const [navLinksCLass, setNavLinksClass] = useState<string>("menu-links")
 
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const NavBar = ({linkRefs}: Refs) => {
   return (
     <header className="navbar" >
       <Logo />
-      <NavLinks themeIcon={theme} handleTheme={handleTheme} menuToggle={menuToggle} setMenuToggle={setMenuToggle} linkRefs={linkRefs} />
+      <NavLinks classes={navLinksCLass} setClasses={setNavLinksClass} themeIcon={theme} handleTheme={handleTheme} menuToggle={menuToggle} setMenuToggle={setMenuToggle} linkRefs={linkRefs} />
       <BurgerIcon theme={themeMode} menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
 
     </header>

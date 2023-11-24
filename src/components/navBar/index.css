@@ -14,15 +14,6 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes navbar {
-    0% {
-        opacity: 0%;
-    }
-
-    100% {
-        opacity: 100%;
-    }
-}
 
 .menu-links {
     display: flex;
@@ -85,10 +76,20 @@
     filter: var(--filter)
 }
 
+@keyframes navbar {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
 @media only screen and (max-width: 768px) {
 
     .menu-links {
         display: none;
     }
-
+    
 }
