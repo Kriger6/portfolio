@@ -26,6 +26,7 @@ const NavLinks = ({ classes, setClasses, themeIcon, handleTheme, menuToggle, set
 
     const checkSize = () => {
         if (window.innerWidth > 768 && menuToggle === true) {
+            setClasses("menu-links")
             setMenuToggle(false)
         }
     }
@@ -33,7 +34,7 @@ const NavLinks = ({ classes, setClasses, themeIcon, handleTheme, menuToggle, set
     useEffect(() => {
         if (menuToggle === true) {
             setClasses("burger-menu burger-open menu-visible")
-        } else if(menuToggle === false) {
+        } else if(menuToggle === false && window.innerWidth < 768) {
             setClasses("burger-menu burger-close")
             setTimeout(() => {
                 setClasses("menu-links")

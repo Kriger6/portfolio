@@ -15,11 +15,34 @@
     display: flex;
 }
 
+.hidden {
+    overflow: hidden;
+}
+
 .burger-open {
     animation-name: burger-open;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+    animation-timing-function: cubic-bezier(.87, 1.15, .42, .93)
+}
+
+.burger-open .nav-link {
+    animation-name: open-links;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+
+@keyframes open-links {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translate(5px, 0);
+    }
 }
 
 .burger-close {
@@ -27,19 +50,28 @@
     animation-name: burger-close;
     animation-duration: .7s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(1, -0.33, .42, .93)
+    animation-timing-function: cubic-bezier(1, -0.21, .42, .93)
 }
 
 .burger-close .nav-link {
-    transition: opacity .5s;
-    transform: translate(-15px, 0px);
-    opacity: 0%;
+    animation-name: close-links;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes close-links {
+    0% {
+        opacity: 100%;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translate(-15px, 0);
+    }
 }
 
 
-.hidden {
-    overflow: hidden;
-}
 
 @keyframes burger-open {
     0% {
@@ -66,12 +98,21 @@
     .menu-visible {
         display: none;
     }
+
+    .burger-close {
+        display: none;
+        animation-name: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {
 
     .display-mode {
         height: 30px;
+    }
+
+    .nav-link {
+        opacity: 0;
     }
 
 }
