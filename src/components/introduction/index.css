@@ -168,7 +168,7 @@ a:hover svg {
 
     .widgets-container {
         top: 250px;
-        scale: .9;
+        transform: scale(.9);
         right: -90px;
     }
 
@@ -187,14 +187,17 @@ a:hover svg {
     }
 
     .widgets-container {
-        top: 350px;
-        scale: .7;
-        right: 0%;
+        transform: scale(.7);
+        position: relative;
+        right: 0;
+        top: -50px;
     }
 
     .introduction-section {
         height: 700px;
         -webkit-mask-image: linear-gradient(180deg, #121212, 650px, transparent);
+        flex-direction: column;
+        align-items: center;
     }
 
 
@@ -203,5 +206,10 @@ a:hover svg {
 @media only screen and (max-width: 553px) {
     h1 {
         max-width: 450px;
+    }
+
+    .widgets-container {
+        top: -90px;
+        transform: scale(.6);
     }
 }
