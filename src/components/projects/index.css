@@ -26,7 +26,6 @@
 
 .project-card {
     transform: scale(0);
-    background-color: var(--photo-background);
     animation-name: project-card;
     animation-fill-mode: forwards;
     animation-duration: 1s;
@@ -37,6 +36,8 @@
 figure {
     scale: 1;  
     transition: scale 0.3s;
+    width: clamp(2rem, 3vw + 21rem, 30rem);
+    margin: 10px 10px 0 0;
 }
 
 figure:hover {
