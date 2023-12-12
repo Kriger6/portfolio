@@ -10,9 +10,21 @@
     animation-fill-mode: forwards;
 }
 
-.about-paragraphs {
-    max-width: 71%;
+.pre-biography {
+    margin-bottom: 70px;
+    width: 60%;
+    opacity: 0;
 }
+
+.biography-paragraph {
+    margin: 25px 0 20px;
+    opacity: 0;
+}
+
+.about-paragraphs {
+    grid-column: span 8/ span 8;
+}
+
 
 .about-paragraph {
     animation-name: about-paragraph;
@@ -21,6 +33,7 @@
 }
 
 .portrait-container {
+    display: inline-block;
     transform: scale(0);
     animation-name: portrait-container;
     animation-fill-mode: forwards;
@@ -28,10 +41,9 @@
     transform-origin: left;
     animation-timing-function: cubic-bezier(.4, 0, .2, 1);
     background-color: var(--photo-background);
-    margin-left: 60px;
-    height: 300px;
-    width: 300px;
-
+    grid-column-start: 9;
+    grid-column-end: 13;
+    aspect-ratio: 1/1;
 }
 
 .portrait-photo {
@@ -116,4 +128,29 @@
     100% {
         opacity: 100%;
     }
+}
+
+@media only screen and (max-width: 1280px) {
+    .portrait-container {
+        grid-column-start: 7;
+        grid-column-end: 13;
+    }
+
+    .about-paragraphs {
+        grid-column: span 6/span 8;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .portrait-container {
+        grid-column-start: 1;
+        grid-column-end: 8;
+        grid-row-start: -1;
+    }
+
+    .about-paragraphs {
+        grid-column: span 11/span 8;
+    }
+
 }

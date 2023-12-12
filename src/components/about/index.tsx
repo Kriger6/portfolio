@@ -5,9 +5,9 @@ import { useThemeContext } from '../App'
 
 
 
-const About = forwardRef<HTMLElement>(({}, ref) => {
+const About = forwardRef<HTMLElement>(({ }, ref) => {
 
-    const {themeMode} = useThemeContext()
+    const { themeMode } = useThemeContext()
 
     const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
     const [aboutHeaderClass, setAboutHeaderClass] = useState<string>("")
@@ -74,16 +74,16 @@ const About = forwardRef<HTMLElement>(({}, ref) => {
             </div>
             <section className="section-content-container">
                 <div className="section-content">
-                    <p className={aboutHeaderClass} style={{ marginBottom: '70px', width: '60%', opacity: 0 }}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
+                    <p className={`${aboutHeaderClass} pre-biography`} style={{ marginBottom: '70px', width: '60%', opacity: 0 }}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
                 </div>
                 <div className="section-content about-details">
                     <div className="about-paragraphs">
                         <h3 className={aboutDetailClasses[0]}>WHO AM I</h3>
-                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.2s" }}>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer.</p>
-                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.5s" }}>Front-end has been my main focus ever since i started learning programming.</p>
-                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.7s" }}>I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies.</p>
-                        <p className={aboutDetailClasses[1]} style={{ margin: "20px 0 20px", opacity: 0, animationDelay: "0.9s" }}>Spending time customizing, improving and tinkering with my work environment and tools is something I enjoy a lot, as it is something i use for many hours daily.
-                            It allows me to have it exactly as i desire. For intstance, I use Visual studio code as my editor of choice.
+                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.2s" }}>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer.</p>
+                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.5s" }}>Front-end has been my main focus ever since i started learning programming.</p>
+                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.7s" }}>I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies.</p>
+                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.9s" }}>Spending time customizing, improving and tinkering with my work environment and tools is something I enjoy a lot, as it is something i use for many hours daily.
+                            It allows me to have it exactly as i desire. For instance, I use Visual Studio Code as my editor of choice.
                         </p>
                     </div>
                     <div ref={portraitContainerRef} className={aboutDetailClasses[2]}>
