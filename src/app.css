@@ -186,7 +186,7 @@ h3 {
 .social-networks-container {
     display: flex;
     justify-content: space-between;
-    width: 230px;
+    width: 210px;
 }
 
 .social-networks-container a {
@@ -220,11 +220,6 @@ textarea {
     padding: 16px 12px 16px 12px;
     color: var(--paragraph);
     outline: none;
-}
-
-
-form {
-    min-width: 550px
 }
 
 .submit-button {

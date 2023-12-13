@@ -73,8 +73,8 @@ const About = forwardRef<HTMLElement>(({ }, ref) => {
                 <div className={borderContainerClasses[1]}></div>
             </div>
             <section className="section-content-container">
-                <div className="section-content">
-                    <p className={`${aboutHeaderClass} pre-biography`} style={{ marginBottom: '70px', width: '60%', opacity: 0 }}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
+                <div className="section-content pre-biography-container">
+                    <p className={`${aboutHeaderClass} pre-biography`}>Get a brief look at who I am and what I do. If you would like to know more about me and my interests, you can.</p>
                 </div>
                 <div className="section-content about-details">
                     <div className="about-paragraphs">

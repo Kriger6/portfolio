@@ -4,17 +4,17 @@ import emailjs from '@emailjs/browser'
 import * as React from 'react'
 import { useEffect } from 'react'
 
-const Contact = forwardRef<HTMLElement>(({}, ref) => {
+const Contact = forwardRef<HTMLElement>(({ }, ref) => {
 
     const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
     const [contactClasses, setContactClasses] = useState<string[]>(["", ""])
 
 
-    
+
     const [nameInput, setNameInput] = useState<string | null>("")
     const [emailInput, setEmailInput] = useState<string | null>("")
     const [messageInput, setMessageInput] = useState<string | null>("")
-    
+
     const [inputStyle, setInputStyle] = useState<string[] | null>([null, null, null])
     const [warningMessage, setWarningMessage] = useState<string[] | null>(["", "", ""])
 
@@ -25,8 +25,8 @@ const Contact = forwardRef<HTMLElement>(({}, ref) => {
         setValue(e.target.value)
         setStyling(e, setValue)
     }
-    
-    
+
+
     const setStyling = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, setValue: React.Dispatch<React.SetStateAction<string>>) => {
         if (e.target.value !== "") {
             if (setValue === setNameInput) {
@@ -44,8 +44,8 @@ const Contact = forwardRef<HTMLElement>(({}, ref) => {
             }
         }
     }
-    
-    
+
+
     const form = useRef()
 
     const sendEmail = (e: React.SyntheticEvent) => {
@@ -96,7 +96,7 @@ const Contact = forwardRef<HTMLElement>(({}, ref) => {
             return false
         }
     }
-    
+
     useEffect(() => {
         const sectionBorderObserver = new IntersectionObserver(entries => {
             entries.forEach((entry => {
@@ -120,7 +120,7 @@ const Contact = forwardRef<HTMLElement>(({}, ref) => {
 
     }, [])
 
-    
+
     useEffect(() => {
         if (isSubmitted === true) {
             handleValidation()
@@ -156,34 +156,34 @@ const Contact = forwardRef<HTMLElement>(({}, ref) => {
                 <div className={borderContainerClasses[1]}></div>
             </div>
             <section className="section-content-container">
-                <div className="section-content contact-content" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <p className={contactClasses[0]} style={{ width: '50%', opacity: 0 }}>Do not hesitate to contact me through the form here or by direct email on {" "}
+                <div className="section-content contact-content">
+                    <p className={`${contactClasses[0]} contact-item`}>Do not hesitate to contact me through the form here or by direct email on {" "}
                         <a style={{ fontSize: '1em', textUnderlineOffset: '5px', textDecorationColor: '#454545' }} href="mailto:sasa.palinkas6@gmail.com">sasa.palinkas6@gmail.com</a> regardless of the subject.
                     </p>
-                    <form ref={form} onSubmit={(e) => {
-                        if (finalValidation(e) === false) {
-                            return
-                        }
-                        sendEmail(e)
-                    }} name="contact" id="contact-form">
-                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.2s' }} htmlFor="contact-form">What's your name?
-                            <input className={inputStyle[0]} onChange={(e) => handleChange(e, setNameInput)} required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
-                            <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
-                        </label>
-                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.4s' }} htmlFor="contact-form">Where can i reach you?
-                            <input className={inputStyle[1]} pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="sasa.palinkas6@gmail.com" type="email" name="user_email" id="" />
-                            <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
-                        </label>
-                        <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.6s' }} htmlFor="contact-form">What's your message?
-                            <textarea className={inputStyle[2]} onChange={(e) => handleChange(e, setMessageInput)} required placeholder="Hi Saša! Lets work!" name="message"></textarea>
-                            <p className={warningMessage[2] === "" ? "warning-message-disabled" : warningMessage[2]}>You need to send me a message!</p>
-                        </label>
-                        <button onClick={handleValidation} className={`${contactClasses[1]} submit-button`} style={{ opacity: 0, animationDelay: '.8s' }} type="submit">Send it
-                            <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: '15px' }} width={'25px'} height={'25px'} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                                <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
-                            </svg>
-                        </button>
-                    </form>
+                    <form className='contact-item' ref={form} onSubmit={(e) => {
+                            if (finalValidation(e) === false) {
+                                return
+                            }
+                            sendEmail(e)
+                        }} name="contact" id="contact-form">
+                            <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.2s' }} htmlFor="contact-form">What's your name?
+                                <input className={inputStyle[0]} onChange={(e) => handleChange(e, setNameInput)} required placeholder="Saša Palinkaš" type="text" name="user_name" id="" />
+                                <p className={warningMessage[0] === "" ? "warning-message-disabled" : warningMessage[0]} >{nameInput.length === 1 ? "Your name is too short" : "I need to know your name"}</p>
+                            </label>
+                            <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.4s' }} htmlFor="contact-form">Where can i reach you?
+                                <input className={inputStyle[1]} pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" onChange={(e) => handleChange(e, setEmailInput)} required placeholder="hey@sasapalinkas.com" type="email" name="user_email" id="" />
+                                <p className={warningMessage[1] === "" ? "warning-message-disabled" : warningMessage[1]}>{emailInput.length > 0 ? "Uh oh, that doesn't look like an email address..." : "I need to know where to reach you!"}</p>
+                            </label>
+                            <label className={contactClasses[1]} style={{ opacity: 0, animationDelay: '.6s' }} htmlFor="contact-form">What's your message?
+                                <textarea className={inputStyle[2]} onChange={(e) => handleChange(e, setMessageInput)} required placeholder="Hi Saša! Lets work!" name="message"></textarea>
+                                <p className={warningMessage[2] === "" ? "warning-message-disabled" : warningMessage[2]}>You need to send me a message!</p>
+                            </label>
+                            <button onClick={handleValidation} className={`${contactClasses[1]} submit-button`} style={{ opacity: 0, animationDelay: '.8s' }} type="submit">Send it
+                                <svg className="w-6 h-6 text-gray-800 dark:text-white" style={{ marginLeft: '15px' }} width={'25px'} height={'25px'} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                                    <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.5" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                                </svg>
+                            </button>
+                    </form>    
                 </div>
             </section>
         </section>

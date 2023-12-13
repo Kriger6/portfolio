@@ -62,6 +62,16 @@ textarea {
     transform: translate(0, 5px);
 }
 
+.contact-content {
+    display: flex;
+    row-gap: 6rem;
+    column-gap: 4rem;
+}
+
+.contact-item {
+    width: 50%;
+}
+
 
 @keyframes contact-paragraph {
     0% {
@@ -84,5 +94,20 @@ textarea {
     100% {
         opacity: 100%;
         transform: translate(0, 0px);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        row-gap: 0;
+    }
+
+    .contact-content p {
+        margin-bottom: 6rem;
+    }
+
+    .contact-item {
+        width: 100%;
     }
 }

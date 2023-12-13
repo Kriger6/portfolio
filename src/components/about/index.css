@@ -10,10 +10,16 @@
     animation-fill-mode: forwards;
 }
 
+.pre-biography-container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 4rem;
+}
+
 .pre-biography {
     margin-bottom: 70px;
-    width: 60%;
     opacity: 0;
+    grid-column: span 8/span 8;
 }
 
 .biography-paragraph {
@@ -44,6 +50,7 @@
     grid-column-start: 9;
     grid-column-end: 13;
     aspect-ratio: 1/1;
+    
 }
 
 .portrait-photo {
@@ -140,6 +147,16 @@
         grid-column: span 6/span 8;
     }
 
+    .pre-biography {
+        grid-column: span 6/span 8;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .pre-biography-container {
+        column-gap: 2rem;    }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -151,6 +168,10 @@
 
     .about-paragraphs {
         grid-column: span 11/span 8;
+    }
+
+    .pre-biography {
+        grid-column: 1/-1;
     }
 
 }
