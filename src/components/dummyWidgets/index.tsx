@@ -13,7 +13,7 @@ const DummyWidgets = () => {
 
     const { themeMode } = useThemeContext()
 
-    let grid = Array(144).fill(undefined).map(() => <div key={uuidv4()} style={{
+    let grid = Array(121).fill(undefined).map(() => <div key={uuidv4()} style={{
         width: "50px", height: "50px", border: `1px solid ${themeMode === "dark" ? "#1F1F1F" : "#dedede"}`,
     }}></div>)
 
@@ -97,7 +97,7 @@ const DummyWidgets = () => {
 
 
     return (
-        <div className='widget-container' style={{ display: "flex", width: "600px", height: "600px", flexWrap: "wrap" }}>
+        <div className='widget-container' style={{ display: "flex", width: "550px", height: "550px", flexWrap: "wrap" }}>
             {grid}
             <div className='animation-dummy-base'>
                 <div className="base-dummy-content">

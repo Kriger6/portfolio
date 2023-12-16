@@ -69,6 +69,7 @@ textarea {
 }
 
 .contact-item {
+    opacity: 0;
     width: 50%;
 }
 

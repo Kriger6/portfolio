@@ -10,6 +10,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 [style="color-scheme: dark"] {
@@ -98,7 +99,7 @@ a {
 }
 
 p {
-    font-size: larger;
+    font-size: large;
     color: var(--paragraph);
 }
 
@@ -197,10 +198,6 @@ h3 {
     margin-top: 100px;
 }
 
-.tech-icons-container div {
-    margin-top: 40px;
-}
-
 .tech-icons-container svg {
     margin-right: 20px;
 }
@@ -252,7 +249,7 @@ textarea {
 
 @media only screen and (max-width: 1440px) {
     .app-container {
-        width: 1200px;
+        width: 1260px;
         margin: auto;
     }
 }

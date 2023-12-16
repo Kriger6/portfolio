@@ -70,7 +70,7 @@ figure h3 {
 }
 
 @media only screen and (max-width: 1440px) {
-    .example-container :nth-child(2) {
+    .example-container figure:nth-of-type(2) {
         margin: 0 60px 0 60px;
     }
 }
@@ -80,7 +80,7 @@ figure h3 {
         flex-wrap: wrap;
     }
 
-    .example-container :nth-child(2) {
+    .example-container figure:nth-of-type(2) {
         margin: 0
     }
 }
@@ -90,7 +90,7 @@ figure h3 {
         flex-wrap: wrap;
     }
 
-    .example-container :nth-child(2) {
+    .example-container figure:nth-of-type(2) {
         margin: auto
     }
 }
