@@ -150,7 +150,7 @@ const Contact = forwardRef<HTMLElement>(({ }, ref) => {
     return (
         <section className="main-section contact-section section" id="contact" ref={ref}>
             <div className="section-border-container">
-                <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
+                <h3 className={`${borderContainerClasses[0]} op-0`}>
                     CONTACT
                 </h3>
                 <div className={borderContainerClasses[1]}></div>

@@ -92,8 +92,8 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
           }
         </h1>
         <p className={classes[0]}>I'm a self-taught frontend developer with passion for building responsive websites.</p>
-        <div className={classes[1]} style={{ marginTop: '60px', display: "inline-block" }}>
-          <a href='#projects' style={{ display: 'flex', alignItems: "end", textDecoration: "none" }}>Explore my projects
+        <div className={`${classes[1]} link-to-projects-basics`}>
+          <a href='#projects'>Explore my projects
             <svg className="w-6 h-6 text-gray-800 dark:text-white arrow-to-projects" style={{ marginLeft: "15px" }} width={"30px"} height={"30px"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
               <path stroke="#b5b5b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.8" d="M5 1v12m0 0 4-4m-4 4L1 9" />
             </svg>

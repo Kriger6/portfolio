@@ -155,7 +155,7 @@ const DummyWidgets = () => {
                         <DummyRectangle />
                     </div>
                     <div className={`animation-dummy-rectangle ${classState[3]} `} style={{
-                        transform: `translate(${movingDistance[3]}px)`, top: '300px',
+                        transform: `translate(${movingDistance[3]}px)`, top: '295px',
                         left: '170px'
                     }}>
                         <DummyCircle w={28} h={28} position="absolute" left={-14} top={-14}

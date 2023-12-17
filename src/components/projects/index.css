@@ -2,14 +2,6 @@
     margin-bottom: 80px;
 }
 
-.section-border-heading {
-    animation-name: section-border-heading;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-    transform: translate(-5px, 0px)
-}
-
 .section-border {
     transform: scale(.5);
     transform-origin: bottom left;

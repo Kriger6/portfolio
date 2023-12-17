@@ -29,13 +29,14 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
 
         const headingObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting) {       
+                    console.log(document.querySelectorAll(".section-border-container"));             
                     setClasses(prevState => ["section-border-heading", "section-border", prevState[2], prevState[3]])
                 }
             })
         })
 
-        headingObserver.observe(document.querySelector(".section-border-container"))
+        headingObserver.observe(document.querySelectorAll(".section-border-container")[0])
 
         const paragraphObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -45,7 +46,7 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
             })
         })
 
-        paragraphObserver.observe(document.querySelector(".section-content"))
+        paragraphObserver.observe(document.querySelectorAll(".section-content")[0])
 
         const projectExamplesObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -66,13 +67,13 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
     return (
         <section className="main-section projects-section section" id="projects" ref={ref}>
             <div className="section-border-container">
-                <h3 className={classes[0]} style={{ opacity: 0 }}>
+                <h3 className={`${classes[0]} op-0`}>
                     PROJECTS
                 </h3>
                 <div className={classes[1]}></div>
             </div>
             <section className="section-content-container">
-                <div className={classes[2]} style={{ opacity: 0 }}>
+                <div className={`${classes[2]} op-0`}>
                     <p className="projects-header">Check out some of my main projects i have worked on.</p>
                 </div>
                 <div className="section-content example-container">

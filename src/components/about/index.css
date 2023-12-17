@@ -187,8 +187,11 @@
 
 @media only screen and (max-width: 768px) {
     .portrait-container {
-        grid-column-start: 1;
         width: 60%;
+    }
+
+    .portrait-container-basics {
+        grid-column-start: 1;
         grid-row-start: -1;
         grid-row-end: 9;
     }

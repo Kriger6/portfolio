@@ -67,7 +67,7 @@ const About = forwardRef<HTMLElement>(({ }, ref) => {
     return (
         <section className="main-section about-section section" id="about" ref={ref}>
             <div className="section-border-container">
-                <h3 className={borderContainerClasses[0]} style={{ opacity: 0 }}>
+                <h3 className={`${borderContainerClasses[0]} op-0`}>
                     ABOUT
                 </h3>
                 <div className={borderContainerClasses[1]}></div>
@@ -86,7 +86,7 @@ const About = forwardRef<HTMLElement>(({ }, ref) => {
                             It allows me to have it exactly as i desire. For instance, I use Visual Studio Code as my editor of choice.
                         </p>
                     </div>
-                    <div ref={portraitContainerRef} className={aboutDetailClasses[2]}>
+                    <div ref={portraitContainerRef} className={`${aboutDetailClasses[2]} portrait-container-basics`}>
                         {shouldPortraitLoad === true ? <img className="portrait-photo" src={image}></img> : ""}
                     </div>
                 </div>
