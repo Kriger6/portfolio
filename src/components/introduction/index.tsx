@@ -12,7 +12,7 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
 
   useEffect(() => {    
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+      entries.forEach(entry => {        
         if (entry.isIntersecting) {
           setHeaderDisplay("inline-flex")
           setIntroductionVisibility("visible")

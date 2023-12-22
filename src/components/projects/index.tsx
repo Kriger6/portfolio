@@ -30,7 +30,6 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
         const headingObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {       
-                    console.log(document.querySelectorAll(".section-border-container"));             
                     setClasses(prevState => ["section-border-heading", "section-border", prevState[2], prevState[3]])
                 }
             })
