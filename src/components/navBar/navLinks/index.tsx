@@ -47,7 +47,7 @@ const NavLinks = ({ classes, setClasses, themeIcon, handleTheme, menuToggle, set
 
     return (
         <div className={classes}>
-            <a className="link-animation nav-link introduction" href="#app-container" ref={linkRefs.introductionLinkRef}>Introduction</a>
+            <a className="link-animation nav-link introduction" href="#intro" ref={linkRefs.introductionLinkRef}>Introduction</a>
             <a className="link-animation nav-link projects" href="#projects" ref={linkRefs.projectsLinkRef}>Projects</a>
             <a className="link-animation nav-link about" href="#about" ref={linkRefs.aboutLinkRef}>About</a>
             <a className="link-animation nav-link contact" href="#contact" ref={linkRefs.contactLinkRef}>Contact</a>

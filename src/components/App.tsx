@@ -91,7 +91,7 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
-      <div className='app-container' id='app-container'>
+      <div className='app-container' id='intro'>
         <NavBar linkRefs={{introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef}} />
         <Introduction ref={introductionRef} />
         <Projects ref={projectsRef} />
