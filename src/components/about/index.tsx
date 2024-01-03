@@ -8,6 +8,7 @@ import { useThemeContext } from '../App'
 const About = forwardRef<HTMLElement>(({ }, ref) => {
 
     const { themeMode } = useThemeContext()
+    const date = new Date()
 
     const [borderContainerClasses, setBorderContainerClasses] = useState<string[]>(["", ""])
     const [aboutHeaderClass, setAboutHeaderClass] = useState<string>("")
@@ -79,7 +80,7 @@ const About = forwardRef<HTMLElement>(({ }, ref) => {
                 <div className="section-content about-details">
                     <div className="about-paragraphs">
                         <h3 className={aboutDetailClasses[0]}>WHO AM I</h3>
-                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.2s" }}>My name is Saša Palinkaš. I am 25 years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer.</p>
+                        <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.2s" }}>My name is Saša Palinkaš. I am {date.getFullYear() - 1997} years old, I live in Bačka Palanka, Republic of Serbia, and i am a self-taught front-end developer.</p>
                         <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.5s" }}>Front-end has been my main focus ever since i started learning programming.</p>
                         <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.7s" }}>I enjoy the constant change in the technologies used in the area and love diving into new frameworks and technologies.</p>
                         <p className={`${aboutDetailClasses[1]} biography-paragraph`} style={{animationDelay: "0.9s" }}>Spending time customizing, improving and tinkering with my work environment and tools is something I enjoy a lot, as it is something i use for many hours daily.
