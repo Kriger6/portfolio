@@ -6,7 +6,7 @@ import Footer from './footer/footer'
 import Introduction from "./introduction"
 import NavBar from "./navBar"
 import Projects from './projects'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 
 type Theme = 'light' | 'dark';
@@ -26,7 +26,7 @@ export const useThemeContext = () => useContext(ThemeContext)
 const App = () => {
 
   const year = new Date()
-  const content = `I am a ${year.getFullYear() - 1997} year old self-taught frontend developer, focused on user experience and designing modern and responsive websites`
+  const content = `I am a ${year.getFullYear() - 1997} year old self-taught frontend developer, focused on user experience and designing modern and responsive websites.`
 
   const introductionRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
@@ -91,22 +91,24 @@ const App = () => {
     }
   }, [themeMode])
 
-
+  
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
-      <Helmet>
-        <meta name='description' content={content} />
-        <meta name="keywords" content="react, meta tags, seo" />
-
-      </Helmet>
-        <div className='app-container' id='intro'>
-          <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
-          <Introduction ref={introductionRef} />
-          <Projects ref={projectsRef} />
-          <About ref={aboutRef} />
-          <Contact ref={contactRef} />
-          <Footer />
-        </div>
+      <HelmetProvider>
+        <Helmet>
+          {/* <meta name='description' content={content} /> */}
+          <link rel='canonical' href='https://sasapalinkas.com/' />
+          <link rel='canonical' href='https://sasapalinkas.com/#intro' />
+        </Helmet>
+      </HelmetProvider>
+      <div className='app-container' id='intro'>
+        <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
+        <Introduction ref={introductionRef} />
+        <Projects ref={projectsRef} />
+        <About ref={aboutRef} />
+        <Contact ref={contactRef} />
+        <Footer />
+      </div>
     </ThemeContext.Provider>
   )
 }

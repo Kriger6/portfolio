@@ -59,16 +59,14 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
         projectExamplesObserver.observe(document.querySelector(".example-container"))
 
     }, [])
-
-
-
+    
 
     return (
         <section className="main-section projects-section section" id="projects" ref={ref}>
             <div className="section-border-container">
-                <h3 className={`${classes[0]} op-0`}>
+                <h2 className={`${classes[0]} op-0`}>
                     PROJECTS
-                </h3>
+                </h2>
                 <div className={classes[1]}></div>
             </div>
             <section className="section-content-container">

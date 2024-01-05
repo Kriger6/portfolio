@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from 'react'
 import DummyWidgets from '../dummyWidgets'
 import './index.css'
 
-const Introduction = forwardRef<HTMLElement>(({}, ref) => {
+const Introduction = forwardRef<HTMLElement>(({ }, ref) => {
 
   const [resetWidget, setResetWidget] = useState<number | undefined>(0)
   const [widgetDisplay, setWidgetDisplay] = useState<string | undefined>("none")
@@ -10,9 +10,9 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
   const [introductionVisibility, setIntroductionVisibility] = useState<string | undefined>("hidden")
   const [classes, setClasses] = useState<string[] | undefined>(["", "", "hidden-widgets-container", ""])
 
-  useEffect(() => {    
+  useEffect(() => {
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {        
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           setHeaderDisplay("inline-flex")
           setIntroductionVisibility("visible")
@@ -64,7 +64,7 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
     const finalArray = letterElements.map((y, index) => {
       let letters = y[0].split("")
       return (
-        <span className='words' key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
+        <span key={index} style={{ display: 'inline-block', overflow: 'hidden' }}>
           {
             letters.map((el) => {
               j++
@@ -74,6 +74,7 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
                 </span>)
             })
           }
+          <span>&nbsp;</span>
         </span>
       )
     })
@@ -87,11 +88,13 @@ const Introduction = forwardRef<HTMLElement>(({}, ref) => {
     <section className={`introduction-section main-section section`} id='introduction' ref={ref}>
       <div className='introduction-landing' style={visibilityStyle}>
         <h1 style={{ display: headerDisplay }}>
-          {
-            constructHeader()
-          }
+          <span>
+            {
+              constructHeader()
+            }
+          </span>
         </h1>
-        <p className={classes[0]}>I'm a self-taught frontend developer with passion for building responsive websites.</p>
+        <p className={classes[0]} >I'm a self-taught frontend developer with passion for building responsive websites.</p>
         <div className={`${classes[1]} link-to-projects-basics`}>
           <a href='#projects'>Explore my projects
             <svg className="w-6 h-6 text-gray-800 dark:text-white arrow-to-projects" style={{ marginLeft: "15px" }} width={"30px"} height={"30px"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
