@@ -6,7 +6,6 @@ import Footer from './footer/footer'
 import Introduction from "./introduction"
 import NavBar from "./navBar"
 import Projects from './projects'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 
 type Theme = 'light' | 'dark';
