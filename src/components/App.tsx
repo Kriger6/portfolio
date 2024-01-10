@@ -25,9 +25,6 @@ export const useThemeContext = () => useContext(ThemeContext)
 
 const App = () => {
 
-  const year = new Date()
-  const content = `I am a ${year.getFullYear() - 1997} year old self-taught frontend developer, focused on user experience and designing modern and responsive websites.`
-
   const introductionRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
@@ -94,13 +91,6 @@ const App = () => {
   
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
-      <HelmetProvider>
-        <Helmet>
-          {/* <meta name='description' content={content} /> */}
-          <link rel='canonical' href='https://sasapalinkas.com/' />
-          <link rel='canonical' href='https://sasapalinkas.com/#intro' />
-        </Helmet>
-      </HelmetProvider>
       <div className='app-container' id='intro'>
         <NavBar linkRefs={{ introductionLinkRef, projectsLinkRef, aboutLinkRef, contactLinkRef }} />
         <Introduction ref={introductionRef} />

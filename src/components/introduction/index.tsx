@@ -69,7 +69,7 @@ const Introduction = forwardRef<HTMLElement>(({ }, ref) => {
             letters.map((el) => {
               j++
               return (
-                <span key={j} className='header-letter' style={{ animationDelay: `${j * 15 + 1000}ms` }}>
+                <span key={j} className='header-letter' style={{ animationDelay: `${j * 15 + 700}ms` }}>
                   {el}
                 </span>)
             })

@@ -4,7 +4,4 @@ import { HelmetProvider } from 'react-helmet-async'
 
 const container = document.getElementById('app')
 const root = createRoot(container)
-root.render(
-    <HelmetProvider>
-        <App />
-    </HelmetProvider>)
+root.render(<App />)
