@@ -7,10 +7,14 @@
     animation-name: project-thumbnail;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    opacity: 0;
+    width: 100%;
+    max-height: 304px;
 }
 
 .image-container {
     background-color: var(--photo-background);
+    max-height: 304px;
 }
 
 .project-category {

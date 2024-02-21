@@ -1,6 +1,10 @@
 import { forwardRef, useEffect, useRef, useState } from "react"
 import ProjectExample from "./projectExamples"
 import './index.css'
+import devTime from '../../assets/devTime.png'
+import knoQuiz from '../../assets/knoQuiz.png'
+import battleCityCloneImage from '../../assets/battleCityCloneImage.png'
+
 
 const Projects = forwardRef<HTMLElement>(({ }, ref) => {
 
@@ -29,7 +33,7 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
 
         const headingObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {       
+                if (entry.isIntersecting) {
                     setClasses(prevState => ["section-border-heading", "section-border", prevState[2], prevState[3]])
                 }
             })
@@ -59,7 +63,7 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
         projectExamplesObserver.observe(document.querySelector(".example-container"))
 
     }, [])
-    
+
 
     return (
         <section className="main-section projects-section section" id="projects" ref={ref}>
@@ -76,17 +80,21 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
                 <div className="section-content example-container">
                     <figure ref={firstProjectPhotoRef}>
                         <div className={classes[3]}>
-                            <ProjectExample load={shouldLoadPhoto[0]} />
+                            <ProjectExample
+                                load={shouldLoadPhoto[0]} projectCategory="Chat application"
+                                projectTitle="DevTime" projectImage={devTime} />
                         </div>
                     </figure>
                     <figure ref={secondProjectPhotoRef}>
-                        <div className={classes[3]} style={{ animationDelay: '.3s'}}>
-                            <ProjectExample load={shouldLoadPhoto[1]} />
+                        <div className={classes[3]} style={{ animationDelay: '.3s' }}>
+                            <ProjectExample load={shouldLoadPhoto[1]} projectCategory="Quiz"
+                                projectTitle="Knoquest" projectImage={knoQuiz} />
                         </div>
                     </figure>
                     <figure ref={thirdProjectPhotoRef}>
-                        <div className={classes[3]} style={{ animationDelay: '.5s'}}>
-                            <ProjectExample load={shouldLoadPhoto[2]} />
+                        <div className={classes[3]} style={{ animationDelay: '.5s' }}>
+                            <ProjectExample load={shouldLoadPhoto[2]} projectCategory="Game clone"
+                                projectTitle="Web Battle City Clone" projectImage={battleCityCloneImage} />
                         </div>
                     </figure>
                 </div>

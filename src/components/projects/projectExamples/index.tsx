@@ -3,19 +3,21 @@ import './index.css'
 
 interface ProjectProps {
   load: boolean
+  projectCategory: string
+  projectTitle: string
+  projectImage: string
 }
 
 const ProjectExample: React.FC<ProjectProps> = (props: ProjectProps) => {
   return (
-    <div className='project-card-container'>
+    <div>
       <div className='image-container'>
-        <img className={props.load === true ? "project-thumbnail" : ""}
-          style={{ opacity: 0 }}
-          src={underConstruction} alt="main project"
+        <img className={props.load === true ? "project-thumbnail" : "op-0"}
+          src={props.projectImage} alt="main project"
         />
       </div>
-      <p className={props.load === true ? "project-category" : "hidden-info"}>Under construction</p>
-      <h3 className={props.load === true ? "project-title" : "hidden-info"}>Under construction</h3>
+      <p className={props.load === true ? "project-category" : "hidden-info"}>{props.projectCategory}</p>
+      <h3 className={props.load === true ? "project-title" : "hidden-info"}>{props.projectTitle}</h3>
     </div>
   )
 }
