@@ -22,11 +22,12 @@
     animation-fill-mode: forwards;
     animation-duration: 1s;
     transform-origin: left;
-    animation-timing-function: cubic-bezier(.4, 0, .2, 1)
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+    background-color: var(--photo-background);
 }
 
 figure {
-    scale: 1;  
+    scale: 1;
     transition: scale 0.3s;
     width: clamp(2rem, 5vw + 20rem, 25rem);
     margin: 0 0 0 0;

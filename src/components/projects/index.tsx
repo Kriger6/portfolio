@@ -78,23 +78,23 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
                     <p className="projects-header">Check out some of my main projects i have worked on.</p>
                 </div>
                 <div className="section-content example-container">
-                    <figure ref={firstProjectPhotoRef}>
+                    <figure onClick={() => window.open("https://github.com/Kriger6/socket.IO-chat-based-react-app")} ref={firstProjectPhotoRef}>
                         <div className={classes[3]}>
                             <ProjectExample
                                 load={shouldLoadPhoto[0]} projectCategory="Chat application"
                                 projectTitle="DevTime" projectImage={devTime} />
                         </div>
                     </figure>
-                    <figure ref={secondProjectPhotoRef}>
+                    <figure onClick={() => window.open("https://github.com/Kriger6/trivia-quiz")} ref={secondProjectPhotoRef}>
                         <div className={classes[3]} style={{ animationDelay: '.3s' }}>
                             <ProjectExample load={shouldLoadPhoto[1]} projectCategory="Quiz"
                                 projectTitle="Knoquest" projectImage={knoQuiz} />
                         </div>
                     </figure>
-                    <figure ref={thirdProjectPhotoRef}>
+                    <figure onClick={() => window.open("https://github.com/Kriger6/redux-tank-game")} ref={thirdProjectPhotoRef}>
                         <div className={classes[3]} style={{ animationDelay: '.5s' }}>
                             <ProjectExample load={shouldLoadPhoto[2]} projectCategory="Game clone"
-                                projectTitle="Web Battle City Clone" projectImage={battleCityCloneImage} />
+                                projectTitle="Battle City Web Clone" projectImage={battleCityCloneImage} />
                         </div>
                     </figure>
                 </div>

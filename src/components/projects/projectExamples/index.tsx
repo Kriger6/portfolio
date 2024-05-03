@@ -1,4 +1,4 @@
-import underConstruction from '../../../assets/under_construction.svg'
+// import underConstruction from '../../../assets/under_construction.svg'
 import './index.css'
 
 interface ProjectProps {
@@ -16,8 +16,10 @@ const ProjectExample: React.FC<ProjectProps> = (props: ProjectProps) => {
           src={props.projectImage} alt="main project"
         />
       </div>
-      <p className={props.load === true ? "project-category" : "hidden-info"}>{props.projectCategory}</p>
-      <h3 className={props.load === true ? "project-title" : "hidden-info"}>{props.projectTitle}</h3>
+      <div className="thumbnail-info-container">
+        <p className={props.load === true ? "project-category" : "hidden-info"}>{props.projectCategory}</p>
+        <h3 className={props.load === true ? "project-title" : "hidden-info"}>{props.projectTitle}</h3>
+      </div>
     </div>
   )
 }
