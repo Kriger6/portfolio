@@ -54,6 +54,8 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
         const projectExamplesObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    console.log("intersection");
+                    
                     setClasses(prevState => [prevState[0], prevState[1], prevState[2], "project-card"])
 
                 }

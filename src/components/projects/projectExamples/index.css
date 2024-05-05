@@ -9,11 +9,11 @@
     animation-fill-mode: forwards;
     opacity: 0;
     width: 100%;
-    max-height: 304px;
 }
 
 .image-container {
-    max-height: 304px;
+    display: flex;
+    max-height: 297px;
 }
 
 .project-category {
@@ -80,6 +80,7 @@ figure h3 {
     .example-container figure:nth-of-type(2) {
         margin: 0 60px 0 60px;
     }
+
 }
 
 @media only screen and (max-width: 1280px) {
@@ -90,10 +91,7 @@ figure h3 {
     .example-container figure:nth-of-type(2) {
         margin: 0
     }
-
-    .project-thumbnail {
-        max-height: 240px;
-    }
+    
 }
 
 @media only screen and (max-width: 768px) {
@@ -105,7 +103,6 @@ figure h3 {
         margin: auto
     }
 
-    .project-thumbnail {
-        max-height: 304px;
-    }
+    
+    
 }

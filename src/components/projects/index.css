@@ -37,6 +37,7 @@ figure:hover {
     scale: 1.05;
     transition-duration: 0.3s;
     cursor: pointer;
+    outline: none;
 }
 
 
@@ -98,5 +99,9 @@ figure:hover {
     figure {
         width: 80%;
         margin: auto;
+    }
+
+    .project-card {
+        width: 85%;
     }
 }
