@@ -6,7 +6,7 @@ const Introduction = forwardRef<HTMLElement>(({ }, ref) => {
 
   const [resetWidget, setResetWidget] = useState<number | undefined>(0)
   const [widgetDisplay, setWidgetDisplay] = useState<string | undefined>("none")
-  const [headerDisplay, setHeaderDisplay] = useState<string | undefined>("none")
+  const [headerDisplay, setHeaderDisplay] = useState<string | undefined>("hidden")
   const [introductionVisibility, setIntroductionVisibility] = useState<string | undefined>("hidden")
   const [classes, setClasses] = useState<string[] | undefined>(["", "", "hidden-widgets-container", ""])
 

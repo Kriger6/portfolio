@@ -5,6 +5,10 @@ import devTime from '../../assets/devTime.png'
 import knoQuiz from '../../assets/knoQuiz.png'
 import battleCityCloneImage from '../../assets/battleCityCloneImage.png'
 
+interface Options {
+    threshold: number
+}
+
 
 const Projects = forwardRef<HTMLElement>(({ }, ref) => {
 
@@ -30,10 +34,15 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
         thirdProjectPhotoRef?.current?.addEventListener('animationend', () => {
             setShouldLoadPhoto(prevState => [prevState[0], prevState[1], true])
         }, { once: true })
+        
+        let options: Options = {
+            threshold: 0.1
+        }
+        
 
         const headingObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting) {                    
                     setClasses(prevState => ["section-border-heading", "section-border", prevState[2], prevState[3]])
                 }
             })
@@ -53,14 +62,12 @@ const Projects = forwardRef<HTMLElement>(({ }, ref) => {
 
         const projectExamplesObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    console.log("intersection");
-                    
+                if (entry.isIntersecting) {                    
                     setClasses(prevState => [prevState[0], prevState[1], prevState[2], "project-card"])
 
                 }
             })
-        })
+        }, options)
 
         projectExamplesObserver.observe(document.querySelector(".example-container"))
 

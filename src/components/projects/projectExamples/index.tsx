@@ -12,7 +12,7 @@ const ProjectExample: React.FC<ProjectProps> = (props: ProjectProps) => {
   return (
     <div>
       <div className='image-container'>
-        <img className={props.load === true ? "project-thumbnail" : "op-0"}
+        <img className={props.load === true ? "project-thumbnail" : "op-0 hidden-thumbnail"}
           src={props.projectImage} alt="main project"
         />
       </div>

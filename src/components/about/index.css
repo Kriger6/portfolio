@@ -232,3 +232,15 @@
     }
 
 }
+
+@media only screen and (max-width: 400px) {
+    .pre-biography {
+        grid-column: span 10 / span 8;
+    }
+    
+
+    .about-paragraphs {
+        grid-column: span 10/ span 8;
+    }
+
+}
