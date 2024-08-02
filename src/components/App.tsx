@@ -80,12 +80,23 @@ const App = () => {
 
   useEffect(() => {
     if (themeMode === "light") {
+      console.log(window.matchMedia("(prefers-color-scheme: light"))
       document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: light")
-    } else {
+    } else if(themeMode === "dark") {
+      console.log(window.matchMedia("(prefers-color-scheme: dark"))
       document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: dark")
 
     }
   }, [themeMode])
+
+  window.matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches }) => {
+      if (matches) {
+        setTheme("dark")
+      } else {
+        setTheme("light")
+      }
+    })
 
   
   return (

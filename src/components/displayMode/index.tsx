@@ -13,6 +13,8 @@ const DisplayMode = ({ themeIcon, handleTheme }: DisplayModeProps) => {
 
   const { toggleTheme } = useThemeContext()
 
+  
+
   return (
     <div style={{ height: "inherit", display: "flex", alignItems: "flex-end" }}>
       <img className='theme-mode' onClick={() => {
