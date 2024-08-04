@@ -30,7 +30,7 @@ const NavBar = ({linkRefs}: Refs) => {
   }, [])
 
   const handleTheme = () => {
-    setTheme(theme === sun ? moon : sun)
+    setTheme(prevState => prevState === sun ? moon : sun)
   }
 
 

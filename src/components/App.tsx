@@ -72,18 +72,16 @@ const App = () => {
 
   }, [])
 
-  const [themeMode, setTheme] = useState<Theme>(`${window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}`)
+  const [themeMode, setThemeMode] = useState<Theme>(`${window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}`)
 
   const toggleTheme = () => {
-    setTheme((prevState) => prevState === "light" ? "dark" : "light")
+    setThemeMode((prevState) => prevState === "light" ? "dark" : "light")
   }
 
   useEffect(() => {
     if (themeMode === "light") {
-      console.log(window.matchMedia("(prefers-color-scheme: light"))
       document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: light")
     } else if(themeMode === "dark") {
-      console.log(window.matchMedia("(prefers-color-scheme: dark"))
       document.getElementsByTagName("html")[0].setAttribute("style", "color-scheme: dark")
 
     }
@@ -92,9 +90,9 @@ const App = () => {
   window.matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', ({ matches }) => {
       if (matches) {
-        setTheme("dark")
+        setThemeMode("dark")
       } else {
-        setTheme("light")
+        setThemeMode("light")
       }
     })
 
