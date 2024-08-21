@@ -10,7 +10,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 [style="color-scheme: dark"] {
@@ -58,7 +57,6 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    overflow-x: hidden;
 }
 
 #app {
